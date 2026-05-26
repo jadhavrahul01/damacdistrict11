@@ -598,6 +598,18 @@
 /* project details end */
 
 /* project-details-tab-box start */
+.project-tab-content:not(.active) {
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.project-tab-content.active {
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 1;
+}
+
 .project-tab-link {
   font-size: 17px;
   font-weight: 400;

@@ -1556,49 +1556,21 @@ if (document.readyState === "complete") {
     ===================================*/
 
 $(document).ready(function () {
+  var $gallerySlider = $('#project-tab2 .project-details-tab-slider');
+
   function updateTabHeight() {
-    var activeTabHeight = $(".project-tab-content.active").outerHeight();
-    $(".project-tab-container").css("height", activeTabHeight + "px");
+    var $active = $('.project-tab-content.active');
+    var activeTabHeight = $active.outerHeight(true);
+
+    if (!activeTabHeight || activeTabHeight < 200) {
+      var imgH = $active.find('.project-details-tab-zoom-image').first().outerHeight() || 600;
+      activeTabHeight = imgH + 140;
+    }
+
+    $('.project-tab-container').css('height', activeTabHeight + 'px');
   }
 
-  // Set initial height on page load
-  updateTabHeight();
-
-  $(".project-tab-link").click(function () {
-    var tabID = $(this).attr("data-project-tab");
-
-    // Remove active class from all tabs and add to clicked tab
-    $(".project-tab-link").removeClass("active");
-    $(this).addClass("active");
-
-    // Slide out current active tab to the right
-    $(".project-tab-content.active").css("transform", "translateX(100%)").css("opacity", "0");
-
-    // Wait for animation, then hide it
-    setTimeout(function () {
-      $(".project-tab-content").removeClass("active").css("transform",
-        "translateX(100%)");
-
-      // Slide in new tab from the left
-      $("#" + tabID).addClass("active").css("transform", "translateX(0)").css(
-        "opacity", "1");
-
-      // Adjust container height after new content is visible
-      setTimeout(updateTabHeight, 300);
-    }, 500);
-  });
-});
-
-/*=====  End of Project Tab  ======*/
-
-/*==================================================
-=            Project Details Tab Slider            =
-==================================================*/
-
-$(document).ready(function () {
-  var owl = $('.project-details-tab-slider');
-
-  owl.owlCarousel({
+  var owlOptions = {
     items: 1,
     loop: true,
     autoplay: true,
@@ -1606,33 +1578,69 @@ $(document).ready(function () {
     autoplaySpeed: 1000,
     smartSpeed: 1000,
     autoplayHoverPause: false,
-    nav: false, // Disabling default navigation
-    dots: false, // Hide dots
+    nav: false,
+    dots: false,
+    onInitialized: function () {
+      updateTabHeight();
+    },
     onTranslated: function (event) {
-      setTimeout(() => {
+      setTimeout(function () {
         $(event.target).find(
-          '.owl-item.active .project-details-tab-slider-content')
-          .addClass('project-details-tab-slide-active');
+          '.owl-item.active .project-details-tab-slider-content'
+        ).addClass('project-details-tab-slide-active');
       }, 200);
     },
     onTranslate: function (event) {
       $(event.target).find('.owl-item .project-details-tab-slider-content').removeClass(
-        'project-details-tab-slide-active');
+        'project-details-tab-slide-active'
+      );
     }
+  };
+
+  if ($gallerySlider.length) {
+    $gallerySlider.owlCarousel(owlOptions);
+  }
+
+  $('#project-tab2').on('click', '.project-details-tab-slider-arrow-left', function () {
+    $gallerySlider.trigger('prev.owl.carousel');
   });
 
-  // Custom Arrows Click Event
-  $('.project-details-tab-slider-arrow-left').click(function () {
-    owl.trigger('prev.owl.carousel');
+  $('#project-tab2').on('click', '.project-details-tab-slider-arrow-right', function () {
+    $gallerySlider.trigger('next.owl.carousel');
   });
 
-  $('.project-details-tab-slider-arrow-right').click(function () {
-    owl.trigger('next.owl.carousel');
+  $(window).on('load', function () {
+    if ($gallerySlider.length && $gallerySlider.hasClass('owl-loaded')) {
+      $gallerySlider.trigger('refresh.owl.carousel');
+    }
+    updateTabHeight();
+  });
+
+  setTimeout(updateTabHeight, 100);
+
+  $('.project-tab-link').click(function () {
+    var tabID = $(this).attr('data-project-tab');
+
+    $('.project-tab-link').removeClass('active');
+    $(this).addClass('active');
+
+    $('.project-tab-content.active').css('transform', 'translateX(100%)').css('opacity', '0');
+
+    setTimeout(function () {
+      $('.project-tab-content').removeClass('active').css('transform', 'translateX(100%)');
+
+      $('#' + tabID).addClass('active').css('transform', 'translateX(0)').css('opacity', '1');
+
+      if (tabID === 'project-tab2' && $gallerySlider.length && $gallerySlider.hasClass('owl-loaded')) {
+        $gallerySlider.trigger('refresh.owl.carousel');
+      }
+
+      setTimeout(updateTabHeight, 300);
+    }, 500);
   });
 });
 
-
-/*=====  End of Project Details Tab Slider  ======*/
+/*=====  End of Project Tab & Gallery Slider  ======*/
 
 /*========================================
 =            Check Visibility            =
