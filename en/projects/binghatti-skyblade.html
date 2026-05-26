@@ -1,0 +1,2694 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            background: #000 !important;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            padding: 32px 24px 24px 24px;
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+            animation: modalFadeIn 0.4s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #333;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #e74c3c;
+        }
+
+        .modal-content h2 {
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            text-align: center;
+            color: #222;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .modal-content input,
+        .modal-content select {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            background: #fafafa;
+            transition: border-color 0.2s;
+        }
+
+        .modal-content input:focus,
+        .modal-content select:focus {
+            border-color: #ff6600;
+            outline: none;
+        }
+
+        .modal-content .custom-btn {
+            background: linear-gradient(90deg, #ff6600, #ffb347);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(255, 102, 0, 0.08);
+            transition: background 0.2s;
+        }
+
+        .modal-content .custom-btn:hover {
+            background: linear-gradient(90deg, #ff6600, #ff6600);
+        }
+
+        .modal-content .form-checkbox-box {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .modal-content .form-checkbox label {
+            cursor: pointer;
+        }
+
+        @media (max-width: 500px) {
+            .modal-content {
+                max-width: 95vw;
+                padding: 18px 6vw 18px 6vw;
+            }
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <link rel="canonical" href="auralius-skyblade.html">
+    <meta name="description"
+        content="Studio, 1, 2 & 3 BR apartments for sale in auralius Skyblade, Downtown Dubai. A premium residential project offering modern living in a prime family-friendly.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>auralius Skyblade – Studio | 1 BR | 2 BR | 3 BR Apartments in Downtown Dubai | auralius UAE</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.png">
+    <meta name="msapplication-TileImage" content="https://auraliusweb.imgix.net/favicon.png">
+
+    <!-- Load essential framework and animations first -->
+    <link rel="preload" href="../assets/css/bootstrap-grid.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="../assets/css/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="../assets/css/flatpickr.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+
+    <!-- Owl Carousel Styles -->
+    <link rel="preload" href="../assets/css/owl.carousel.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="../assets/css/owl.theme.default.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+
+    <!-- Main and responsive styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- <link rel="preload" href="../assets/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+    <link rel="preload" href="../assets/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- Improper H1 style -->
+    <link rel="stylesheet" href="../assets/css/h1-style.css">
+    <link rel="stylesheet" href="../assets/css/project-test.css">
+
+
+    <link rel="preload" as="font" href="../assets/fonts/aktiv-grotesk/AktivGroteskCorp-Hair.woff2" type="font/woff2"
+        crossorigin="anonymous">
+    <link rel="preload" as="font" href="../assets/fonts/aktiv-grotesk/AktivGroteskCorp-Light.woff2" type="font/woff2"
+        crossorigin="anonymous">
+    <link rel="preload" as="font" href="../assets/fonts/aktiv-grotesk/AktivGroteskCorp-Regular.woff2" type="font/woff2"
+        crossorigin="anonymous">
+    <link rel="preload" as="font" href="../assets/fonts/aktiv-grotesk/AktivGroteskCorp-Medium.woff2" type="font/woff2"
+        crossorigin="anonymous">
+    <link rel="preload" as="font" href="../assets/fonts/aktiv-grotesk/AktivGroteskCorp-Bold.woff2" type="font/woff2"
+        crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        @font-face {
+            font-family: 'AktivGrotesk';
+            src: url('../assets/fonts/aktiv-grotesk/AktivGroteskCorp-Hair.woff2') format('woff2');
+            font-weight: 100;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'AktivGrotesk';
+            src: url('../assets/fonts/aktiv-grotesk/AktivGroteskCorp-Light.woff2') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'AktivGrotesk';
+            src: url('../assets/fonts/aktiv-grotesk/AktivGroteskCorp-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'AktivGrotesk';
+            src: url('../assets/fonts/aktiv-grotesk/AktivGroteskCorp-Medium.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'AktivGrotesk';
+            src: url('../assets/fonts/aktiv-grotesk/AktivGroteskCorp-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+
+    <!-- Fallback for older browsers -->
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="../assets/css/animate.min.css">
+        <link rel="stylesheet" href="../assets/css/flatpickr.min.css">
+        <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="../assets/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/responsive.css">
+    </noscript>
+
+    <!-- Google Tag Manager -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        window.gtmLoadInitiated = false;
+
+        function loadGTM() {
+            if (window.gtmLoadInitiated) return;
+            window.gtmLoadInitiated = true;
+
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    'gtm.start': new Date().getTime(),
+                    event: 'gtm.js'
+                });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-PWVCGKH');
+        }
+
+        // Load GTM after 5 seconds
+        setTimeout(loadGTM, 5000);
+
+        // Also load if user interacts with the page
+        document.addEventListener('click', loadGTM);
+        document.addEventListener('scroll', loadGTM);
+        document.addEventListener('keydown', loadGTM);
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Bootstrap -->
+    <link href="../../npm/bootstrap%405.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <!-- FAQs Schema -->
+    <script type="application/ld+json">
+        {
+             "@context": "https://schema.org", 
+
+              "@type": "FAQPage", 
+
+              "mainEntity": [ 
+
+                { 
+
+                  "@type": "Question", 
+
+                  "name": "What types of properties are available at auralius Skyblade?", 
+
+                  "acceptedAnswer": { 
+
+                    "@type": "Answer", 
+
+                    "text": "auralius Skyblade offers a range of meticulously designed studios, 1, 2, and 3-bedroom apartments with a total of 619 residential units and 2 retail units." 
+
+                  } 
+
+                }, 
+
+                { 
+
+                  "@type": "Question", 
+
+                  "name": "How many floors is auralius Skyblade?", 
+
+                  "acceptedAnswer": { 
+
+                    "@type": "Answer", 
+
+                    "text": "auralius Skyblade consists of 4 basement levels, ground floor, 3 podium levels, 55 residential floors, 5 mechanical floors, and a roof." 
+
+                  } 
+
+                }, 
+
+                { 
+
+                  "@type": "Question", 
+
+                  "name": "When is the completion date for auralius Skyblade?", 
+
+                  "acceptedAnswer": { 
+
+                    "@type": "Answer", 
+
+                    "text": "auralius Skyblade's completion date is Q4 2027." 
+
+                  } 
+
+                }, 
+
+                { 
+
+                  "@type": "Question", 
+
+                  "name": "What is the payment plan for auralius Skyblade?", 
+
+                  "acceptedAnswer": { 
+
+                    "@type": "Answer", 
+
+                    "text": "Skyblade follows auralius's standard payment plan, which is: 20% on signing the contract, 50% during construction, and 30% on completion." 
+
+                  } 
+
+                }, 
+
+                { 
+
+                  "@type": "Question", 
+
+                  "name": "What makes auralius Skyblade a good investment?", 
+
+                  "acceptedAnswer": { 
+
+                    "@type": "Answer", 
+
+                    "text": "auralius Skyblade represents innovation and craftsmanship with its iconic crown and instantly recognizable design. Besides its premium amenities, it has a strategic location in Downtown Dubai, and floor-to-ceiling windows that offer panoramic views of the Burj Khalifa. All of these factors present the project as a unique investment opportunity." 
+
+                  } 
+
+                }, 
+
+                { 
+
+                  "@type": "Question", 
+
+                  "name": "Where is auralius Skyblade located?", 
+
+                  "acceptedAnswer": { 
+
+                    "@type": "Answer", 
+
+                    "text": "auralius Skyblade lies in a premium location in Downtown Dubai, offering panoramic views of the world’s tallest tower, Burj Khalifa. It is only 3 minutes away from Burj Khalifa and Dubai Mall, 3 minutes from Dubai Opera, 10 minutes from Dubai International Financial Centre (DIFC), 12 minutes from the Museum of the Future, 15 minutes from Burj Al Arab and Jumeirah Beach, and 16 minutes from Dubai International Airport." 
+
+                  } 
+
+                } 
+
+              ] 
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Noscript fallback (loads immediately if JS is disabled) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWVCGKH" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager -->
+
+    <!-- Project Banner Image -->
+    <section class="vh project-banner">
+        <div class="project-banner-image img" data-desktop="/assets/img/auralius-skyblade-hero-banner.webp"
+            data-mobile="../assets/img/auralius-skyblade-hero-banner-vertical.webp">
+        </div>
+        <h1>auralius <b>Skyblade</b></h1>
+        <div class="reg-btn">
+            <a class="custom-btn btn-border open-call-popup-for-lead animate-btn">REGISTER YOUR INTEREST</a>
+        </div>
+        <div class="project-banner-details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="project-banner-details-text-box">
+                            <div class="project-banner-details-text">
+                                <h2>Available</h2>
+                            </div>
+                            <div class="project-banner-details-text">
+                                <h2><a href="../area-guides/downtown-dubai" class="location-link">Downtown Dubai</a>
+                                </h2>
+                            </div>
+                            <div class="project-banner-details-text">
+                                <h2>STUDIO | 1 BR | 2 BR | 3 BR</h2>
+                            </div>
+                            <div class="project-banner-details-text">
+                                <h2><small>FROM </small><img src="../assets/img/UAE_Dirham_Symbol.png" alt="symbol"
+                                        style="width: 15px; height:14px; filter: invert(1); margin-right: 3px">1,674,999
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu -->
+
+    <div class="mobile-menu">
+        <div class="mobile-menu-logo">
+            <a href="/" aria-label="Home">
+                <img src="../../logo.svg" alt="Logo">
+            </a>
+        </div>
+        <nav class="main-menu">
+            <ul>
+                <li><a class="" href="/" aria-label="Home">Home</a></li>
+                <li><a class="" href="//en/about-us" aria-label="The Brand">The
+                        Brand</a></li>
+                <li><a target="_blank" href="https://bugattiresidences.com/" aria-label="Bugatti Residences">Bugatti
+                        Residences</a></li>
+
+                <li>
+                    <a href="#" class="" aria-label="Branded Luxury Collection">Branded Luxury Collection</a>
+                    <ul>
+                        <li><a class="" href="//en/branded-projects/mercedes-benz-places"
+                                aria-label="Mercedes-Benz">Mercedes-Benz</a></li>
+                        <li><a class=""
+                                href="//en/branded-projects/burj-auralius-jacob-co-residences"
+                                aria-label="Jacob and Co">Jacob &amp; Co</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#" class="" aria-label="Collections">Collections</a>
+                    <ul>
+                        <li><a class="" href="//en/luxury-projects"
+                                aria-label="Luxury Projects">Luxury</a></li>
+                        <li><a class="" href="//en/premium-projects"
+                                aria-label="Premium Projects">Premium</a></li>
+                        <li><a class="" href="//en/projects" aria-label="Premium Projects">all
+                                Projects</a></li>
+                    </ul>
+                </li>
+
+                <li><a class="" href="//en/new-releases" aria-label="New Releases">New
+                        Releases</a></li>
+                <li><a class="" href="//en/property-search" aria-label="Search Properties">Search
+                        Properties</a></li>
+                <li><a class="" href="//en/events" aria-label="Events">Events</a></li>
+                <li><a class="" href="//en/news-media" aria-label="News and Media">News &amp;
+                        Media</a></li>
+                <li><a class="" href="//en/contact-us" aria-label="Find a Boutique">Find a
+                        Boutique</a></li>
+                <li><a class="" href="//en/investors-relations"
+                        aria-label="Investor Relations">Investor Relations</a></li>
+            </ul>
+        </nav>
+        <div class="footer-social-media">
+            <a href="https://www.instagram.com/auralius/" target="_blank" aria-label="Follow us on Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 448 512">
+                    <path fill="white"
+                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+                    </path>
+                </svg>
+            </a>
+            <a href="https://www.facebook.com/auralius/" target="_blank" aria-label="Follow us on Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 320 512">
+                    <path fill="white"
+                        d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z">
+                    </path>
+                </svg>
+            </a>
+            <a href="https://www.youtube.com/c/auraliusDevelopersDubai/" target="_blank"
+                aria-label="Subscribe to our YouTube channel">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 576 512">
+                    <path fill="white"
+                        d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z">
+                    </path>
+                </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/auralius/" target="_blank"
+                aria-label="Connect with us on LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 448 512">
+                    <path fill="white"
+                        d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z">
+                    </path>
+                </svg>
+            </a>
+            <a href="https://www.snapchat.com/add/auralius" target="_blank" aria-label="Follow us on Snapchat">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="white">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                        d="M12 1.96a5.88 5.88 0 0 1 5.882 5.882c0 .618 .008 1.174 .03 1.678l.008 .21l.084 -.115q .46 -.627 1.102 -1.29l.187 -.19a1 1 0 0 1 1.414 1.415c-2.637 2.637 -2.51 3.795 .76 5.527l.048 .025a.98.98 0 0 1 .46 .636l.004 .022l.003 .013l.006 .043l.006 .032v.009l.003 .025l.001 .051l.002 .026l-.001 .009v.025l-.003 .042l-.002 .034l-.002 .015l-.002 .02l-.004 .016l-.01 .06l-.007 .026l-.006 .02l-.016 .06l-.013 .029l-.005 .013l-.024 .062a1 1 0 0 1 -.197 .28l-.03 .025l-.016 .014l-.043 .039l-.013 .007l-.018 .015l-.051 .033l-.02 .014l-.008 .003l-.014 .01a1 1 0 0 1 -.098 .049l-.013 .003l-.146 .066c-.576 .255 -.81 .365 -1.008 .474l-.053 .03c-.27 .155 -.398 .277 -.558 .525c-.156 .245 -.293 .516 -.715 1.41a1 1 0 0 1 -.904 .573c-1.067 0 -1.798 .25 -2.879 .868l-.426 .246c-.176 .102 -.311 .178 -.447 .25c-.794 .423 -1.464 .636 -2.248 .636s-1.454 -.213 -2.248 -.636a15 15 0 0 1 -.447 -.25l-.426 -.246c-1.081 -.618 -1.812 -.868 -2.879 -.868a1 1 0 0 1 -.904 -.573c-.422 -.894 -.559 -1.165 -.715 -1.41a1.4 1.4 0 0 0 -.558 -.525c-.228 -.13 -.47 -.243 -1.227 -.577l.02 .007l-.013 -.003a1 1 0 0 1 -.098 -.05l-.014 -.009l-.028 -.017l-.051 -.033l-.018 -.015l-.013 -.007l-.043 -.039l-.012 -.01l-.004 -.004l-.03 -.025a1 1 0 0 1 -.197 -.28l-.024 -.062l-.005 -.013l-.013 -.028l-.016 -.061l-.005 -.012l-.008 -.035l-.01 -.059l-.004 -.016l-.002 -.02l-.002 -.015l-.002 -.035l-.004 -.041l.001 -.025l-.001 -.01l.002 -.025l.001 -.05l.003 -.026v-.01l.006 -.03l.006 -.044l.004 -.014l.002 -.021a.98 .98 0 0 1 .461 -.636l.048 -.025l.204 -.11c3.003 -1.635 3.132 -2.785 .72 -5.25l-.164 -.167a1 1 0 0 1 1.414 -1.414q .764 .763 1.289 1.479l.083 .115l.01 -.21q .025 -.628 .028 -1.374l.001 -.304a5.88 5.88 0 0 1 5.882 -5.882">
+                    </path>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Search -->
+    <div class="search-pop-up">
+        <div class="search-pop-up-content">
+            <h3><b>Exquisite</b> Development</h3>
+            <a href="//en/property-search?project-type=branded-luxury">Branded Luxury</a>|<a
+                href="//en/property-search?project-type=luxury">Luxury</a>|<a
+                href="//en/property-search?project-type=premium">Premium</a>
+        </div>
+    </div>
+
+    <div class="main-popup call-popup">
+        <div class="xmark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                <rect x="23.4375" y="23.4375" width="22.875" height="22.875" rx="11.4375"
+                    transform="rotate(-180 23.4375 23.4375)" fill="white" fill-opacity="0.16"></rect>
+                <rect x="23.4375" y="23.4375" width="22.875" height="22.875" rx="11.4375"
+                    transform="rotate(-180 23.4375 23.4375)" stroke="white" stroke-width="1.125"></rect>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M16.1655 8.38083C16.4119 8.10721 16.3898 7.68568 16.1162 7.43931C15.8426 7.19294 15.421 7.21503 15.1747 7.48865L11.9089 11.1157L8.82637 7.68148C8.58042 7.40748 8.15893 7.38473 7.88493 7.63068C7.61093 7.87662 7.58818 8.29812 7.83413 8.57211L11.0117 12.1121L8.03727 15.4155C7.7909 15.6891 7.81299 16.1107 8.08661 16.357C8.36023 16.6034 8.78176 16.5813 9.02813 16.3077L11.9073 13.11L14.9592 16.51C15.2052 16.784 15.6267 16.8068 15.9007 16.5608C16.1747 16.3149 16.1974 15.8934 15.9515 15.6194L12.8046 12.1135L16.1655 8.38083Z"
+                    fill="white"></path>
+            </svg>
+        </div>
+        <div class="main-popup-box">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-6">
+                        <div class="call-popup-2">
+                            <h2>REGISTER NOW FOR <b>MORE DETAILS</b></h2>
+                            <div class="footer-form-input form-input">
+                                <input type="text" placeholder="NAME" class="lead_from_call_name" autocomplete="off"
+                                    maxlength="31" minlength="3">
+                            </div>
+                            <div
+                                class="footer-form-input form-input with-country-code  lead_from_call_with_country_code">
+                                <label for="country_code" class="visually-hidden">Country Code</label>
+                                <select name="country_code" class="lead_from_call_country_code">
+                                    <option selected="" value="971">UAE (+971)</option>
+                                    <option value="213">Algeria (+213)</option>
+                                    <option value="376">Andorra (+376)</option>
+                                    <option value="244">Angola (+244)</option>
+                                    <option value="1264">Anguilla (+1264)</option>
+                                    <option value="1268">Antigua (+1268)</option>
+                                    <option value="54">Argentina (+54)</option>
+                                    <option value="374">Armenia (+374)</option>
+                                    <option value="297">Aruba (+297)</option>
+                                    <option value="61">Australia (+61)</option>
+                                    <option value="43">Austria (+43)</option>
+                                    <option value="994">Azerbaijan (+994)</option>
+                                    <option value="1242">Bahamas (+1242)</option>
+                                    <option value="973">Bahrain (+973)</option>
+                                    <option value="880">Bangladesh (+880)</option>
+                                    <option value="1246">Barbados (+1246)</option>
+                                    <option value="375">Belarus (+375)</option>
+                                    <option value="32">Belgium (+32)</option>
+                                    <option value="501">Belize (+501)</option>
+                                    <option value="229">Benin (+229)</option>
+                                    <option value="1441">Bermuda (+1441)</option>
+                                    <option value="975">Bhutan (+975)</option>
+                                    <option value="591">Bolivia (+591)</option>
+                                    <option value="387">Bosnia (+387)</option>
+                                    <option value="267">Botswana (+267)</option>
+                                    <option value="55">Brazil (+55)</option>
+                                    <option value="673">Brunei (+673)</option>
+                                    <option value="359">Bulgaria (+359)</option>
+                                    <option value="226">Burkina Faso (+226)</option>
+                                    <option value="257">Burundi (+257)</option>
+                                    <option value="855">Cambodia (+855)</option>
+                                    <option value="237">Cameroon (+237)</option>
+                                    <option value="1">Canada (+1)</option>
+                                    <option value="238">Cape Verde (+238)</option>
+                                    <option value="1345">Cayman Islands (+1345)</option>
+                                    <option value="236">Central Africa (+236)</option>
+                                    <option value="56">Chile (+56)</option>
+                                    <option value="86">China (+86)</option>
+                                    <option value="57">Colombia (+57)</option>
+                                    <option value="269">Comoros (+269)</option>
+                                    <option value="242">Congo (+242)</option>
+                                    <option value="682">Cook Islands (+682)</option>
+                                    <option value="506">Costa Rica (+506)</option>
+                                    <option value="385">Croatia (+385)</option>
+                                    <option value="53">Cuba (+53)</option>
+                                    <option value="90392">N. Cyprus (+90392)</option>
+                                    <option value="357">S. Cyprus (+357)</option>
+                                    <option value="42">Czechia (+42)</option>
+                                    <option value="45">Denmark (+45)</option>
+                                    <option value="253">Djibouti (+253)</option>
+                                    <option value="1809">Dominica (+1809)</option>
+                                    <option value="1809">Dom. Republic (+1809)</option>
+                                    <option value="593">Ecuador (+593)</option>
+                                    <option value="20">Egypt (+20)</option>
+                                    <option value="503">El Salvador (+503)</option>
+                                    <option value="240">Eq. Guinea (+240)</option>
+                                    <option value="291">Eritrea (+291)</option>
+                                    <option value="372">Estonia (+372)</option>
+                                    <option value="251">Ethiopia (+251)</option>
+                                    <option value="500">Falklands (+500)</option>
+                                    <option value="298">Faroe Islands (+298)</option>
+                                    <option value="679">Fiji (+679)</option>
+                                    <option value="358">Finland (+358)</option>
+                                    <option value="33">France (+33)</option>
+                                    <option value="594">Fr. Guiana (+594)</option>
+                                    <option value="689">Fr. Polynesia (+689)</option>
+                                    <option value="241">Gabon (+241)</option>
+                                    <option value="220">Gambia (+220)</option>
+                                    <option value="7880">Georgia (+7880)</option>
+                                    <option value="49">Germany (+49)</option>
+                                    <option value="233">Ghana (+233)</option>
+                                    <option value="350">Gibraltar (+350)</option>
+                                    <option value="30">Greece (+30)</option>
+                                    <option value="299">Greenland (+299)</option>
+                                    <option value="1473">Grenada (+1473)</option>
+                                    <option value="590">Guadeloupe (+590)</option>
+                                    <option value="671">Guam (+671)</option>
+                                    <option value="502">Guatemala (+502)</option>
+                                    <option value="224">Guinea (+224)</option>
+                                    <option value="245">Bissau (+245)</option>
+                                    <option value="592">Guyana (+592)</option>
+                                    <option value="509">Haiti (+509)</option>
+                                    <option value="504">Honduras (+504)</option>
+                                    <option value="852">HongKong (+852)</option>
+                                    <option value="36">Hungary (+36)</option>
+                                    <option value="354">Iceland (+354)</option>
+                                    <option value="91">India (+91)</option>
+                                    <option value="62">Indonesia (+62)</option>
+                                    <option value="98">Iran (+98)</option>
+                                    <option value="964">Iraq (+964)</option>
+                                    <option value="353">Ireland (+353)</option>
+                                    <option value="972">Israel (+972)</option>
+                                    <option value="39">Italy (+39)</option>
+                                    <option value="1876">Jamaica (+1876)</option>
+                                    <option value="81">Japan (+81)</option>
+                                    <option value="962">Jordan (+962)</option>
+                                    <option value="7">Kazakhstan (+7)</option>
+                                    <option value="254">Kenya (+254)</option>
+                                    <option value="686">Kiribati (+686)</option>
+                                    <option value="850">N. Korea (+850)</option>
+                                    <option value="82">S. Korea (+82)</option>
+                                    <option value="965">Kuwait (+965)</option>
+                                    <option value="996">Kyrgyzstan (+996)</option>
+                                    <option value="856">Laos (+856)</option>
+                                    <option value="371">Latvia (+371)</option>
+                                    <option value="961">Lebanon (+961)</option>
+                                    <option value="266">Lesotho (+266)</option>
+                                    <option value="231">Liberia (+231)</option>
+                                    <option value="218">Libya (+218)</option>
+                                    <option value="417">Liechtenstein (+417)</option>
+                                    <option value="370">Lithuania (+370)</option>
+                                    <option value="352">Luxembourg (+352)</option>
+                                    <option value="853">Macao (+853)</option>
+                                    <option value="389">Macedonia (+389)</option>
+                                    <option value="261">Madagascar (+261)</option>
+                                    <option value="265">Malawi (+265)</option>
+                                    <option value="60">Malaysia (+60)</option>
+                                    <option value="960">Maldives (+960)</option>
+                                    <option value="223">Mali (+223)</option>
+                                    <option value="356">Malta (+356)</option>
+                                    <option value="692">Marshall (+692)</option>
+                                    <option value="596">Martinique (+596)</option>
+                                    <option value="222">Mauritania (+222)</option>
+                                    <option value="269">Mayotte (+269)</option>
+                                    <option value="52">Mexico (+52)</option>
+                                    <option value="691">Micronesia (+691)</option>
+                                    <option value="373">Moldova (+373)</option>
+                                    <option value="377">Monaco (+377)</option>
+                                    <option value="976">Mongolia (+976)</option>
+                                    <option value="1664">Montserrat (+1664)</option>
+                                    <option value="212">Morocco (+212)</option>
+                                    <option value="258">Mozambique (+258)</option>
+                                    <option value="95">Myanmar (+95)</option>
+                                    <option value="264">Namibia (+264)</option>
+                                    <option value="674">Nauru (+674)</option>
+                                    <option value="977">Nepal (+977)</option>
+                                    <option value="31">Netherlands (+31)</option>
+                                    <option value="687">Caledonia (+687)</option>
+                                    <option value="64">NZ (+64)</option>
+                                    <option value="505">Nicaragua (+505)</option>
+                                    <option value="227">Niger (+227)</option>
+                                    <option value="234">Nigeria (+234)</option>
+                                    <option value="683">Niue (+683)</option>
+                                    <option value="672">Norfolk (+672)</option>
+                                    <option value="670">Marianas (+670)</option>
+                                    <option value="47">Norway (+47)</option>
+                                    <option value="968">Oman (+968)</option>
+                                    <option value="680">Palau (+680)</option>
+                                    <option value="507">Panama (+507)</option>
+                                    <option value="675">Papua (+675)</option>
+                                    <option value="595">Paraguay (+595)</option>
+                                    <option value="51">Peru (+51)</option>
+                                    <option value="63">Philippines (+63)</option>
+                                    <option value="48">Poland (+48)</option>
+                                    <option value="351">Portugal (+351)</option>
+                                    <option value="1787">PuertoRico (+1787)</option>
+                                    <option value="974">Qatar (+974)</option>
+                                    <option value="262">Reunion (+262)</option>
+                                    <option value="40">Romania (+40)</option>
+                                    <option value="7">Russia (+7)</option>
+                                    <option value="250">Rwanda (+250)</option>
+                                    <option value="378">SanMarino (+378)</option>
+                                    <option value="239">SaoTome (+239)</option>
+                                    <option value="966">Saudi (+966)</option>
+                                    <option value="221">Senegal (+221)</option>
+                                    <option value="381">Serbia (+381)</option>
+                                    <option value="248">Seychelles (+248)</option>
+                                    <option value="232">Sierra (+232)</option>
+                                    <option value="65">Singapore (+65)</option>
+                                    <option value="421">Slovakia (+421)</option>
+                                    <option value="386">Slovenia (+386)</option>
+                                    <option value="677">Solomon (+677)</option>
+                                    <option value="252">Somalia (+252)</option>
+                                    <option value="27">S. Africa (+27)</option>
+                                    <option value="34">Spain (+34)</option>
+                                    <option value="94">SriLanka (+94)</option>
+                                    <option value="290">StHelena (+290)</option>
+                                    <option value="1869">StKitts (+1869)</option>
+                                    <option value="1758">StLucia (+1758)</option>
+                                    <option value="249">Sudan (+249)</option>
+                                    <option value="597">Suriname (+597)</option>
+                                    <option value="268">Swaziland (+268)</option>
+                                    <option value="46">Sweden (+46)</option>
+                                    <option value="41">Switzerland (+41)</option>
+                                    <option value="963">Syria (+963)</option>
+                                    <option value="886">Taiwan (+886)</option>
+                                    <option value="7">Tajikistan (+7)</option>
+                                    <option value="66">Thailand (+66)</option>
+                                    <option value="228">Togo (+228)</option>
+                                    <option value="676">Tonga (+676)</option>
+                                    <option value="1868">Trinidad (+1868)</option>
+                                    <option value="216">Tunisia (+216)</option>
+                                    <option value="90">Turkey (+90)</option>
+                                    <option value="993">Turkmenistan (+993)</option>
+                                    <option value="1649">Turks (+1649)</option>
+                                    <option value="688">Tuvalu (+688)</option>
+                                    <option value="256">Uganda (+256)</option>
+                                    <option value="44">UK (+44)</option>
+                                    <option value="380">Ukraine (+380)</option>
+                                    <option value="598">Uruguay (+598)</option>
+                                    <option value="1">USA (+1)</option>
+                                    <option value="7">Uzbekistan (+7)</option>
+                                    <option value="678">Vanuatu (+678)</option>
+                                    <option value="379">Vatican (+379)</option>
+                                    <option value="58">Venezuela (+58)</option>
+                                    <option value="84">Vietnam (+84)</option>
+                                    <option value="1284">VI-British (+1284)</option>
+                                    <option value="1340">VI-US (+1340)</option>
+                                    <option value="681">Wallis (+681)</option>
+                                    <option value="969">YemenN (+969)</option>
+                                    <option value="967">YemenS (+967)</option>
+                                    <option value="260">Zambia (+260)</option>
+                                    <option value="263">Zimbabwe (+263)</option>
+                                </select>
+                                <input type="number" placeholder="MOBILE" class="lead_from_call_mobile" maxlength="15"
+                                    minlength="6">
+                            </div>
+                            <div class="footer-form-input form-input">
+                                <input type="email" placeholder="EMAIL" class="lead_from_call_email" maxlength="30"
+                                    minlength="3">
+                            </div>
+                            <div class="form-checkbox-box">
+                                <div class="form-checkbox lead_from_call_conditions_box">
+                                    <!-- <input type="checkbox" id="footer-terms-and-conditions-lead-from-call" class="lead_from_call_conditions"> -->
+                                    <label for="footer-terms-and-conditions-lead-from-call"> By submitting, you agree to
+                                        our <span class="open-terms-and-conditions">terms &amp;
+                                            conditions*</span></label>
+                                </div>
+                                <!-- <div class="form-checkbox">
+                                <input type="checkbox" id="footer-communications"
+                                    class="lead_from_call_other_communications">
+                                <label for="footer-communications"> I agree to receive exclusive updates &amp; other
+                                    communications</label>
+                            </div> -->
+                            </div>
+                            <button class="custom-btn lead_from_call_submit" aria-label="CONFIRM NOW">CONFIRM
+                                NOW</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 call-popup-1-box">
+                        <div class="call-popup-1">
+                            <h2>CONNECT WITH <b>THE BRAND</b></h2> <br>
+                            <p>
+                                <a href="tel:+97180015">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16"
+                                        fill="none">
+                                        <path
+                                            d="M12.7463 15.8747C12.0601 15.8747 11.0961 15.6265 9.65255 14.82C7.8972 13.8356 6.53947 12.9268 4.79361 11.1855C3.11033 9.50331 2.29119 8.41417 1.14474 6.32799C-0.150415 3.97252 0.070366 2.73784 0.317163 2.21014C0.611069 1.57944 1.0449 1.20221 1.60564 0.827799C1.92414 0.619124 2.26119 0.440242 2.61251 0.293424C2.64767 0.278307 2.68037 0.263893 2.70955 0.250885C2.88357 0.172486 3.14724 0.0540098 3.48123 0.180572C3.70412 0.264244 3.9031 0.435455 4.21458 0.743072C4.85337 1.37307 5.7263 2.77616 6.04833 3.46522C6.26454 3.92963 6.40763 4.2362 6.40798 4.58002C6.40798 4.98256 6.20548 5.29299 5.95974 5.62803C5.91369 5.69096 5.86798 5.75108 5.82369 5.80944C5.55615 6.161 5.49744 6.2626 5.53611 6.44401C5.61451 6.80858 6.19915 7.89385 7.15997 8.85256C8.12079 9.81127 9.17478 10.359 9.54076 10.4371C9.7299 10.4775 9.83361 10.4163 10.1964 10.1393C10.2485 10.0996 10.3019 10.0584 10.3578 10.0173C10.7326 9.7385 11.0286 9.54128 11.4216 9.54128H11.4237C11.7658 9.54128 12.0586 9.68963 12.5438 9.93432C13.1766 10.2535 14.6219 11.1152 15.2558 11.7547C15.5641 12.0655 15.736 12.2638 15.82 12.4863C15.9466 12.8214 15.8274 13.084 15.7497 13.2598C15.7367 13.2889 15.7223 13.3209 15.7072 13.3564C15.5592 13.7071 15.3792 14.0435 15.1696 14.3612C14.7959 14.9202 14.4173 15.353 13.7852 15.6472C13.4606 15.8007 13.1053 15.8785 12.7463 15.8747Z"
+                                            fill="white"></path>
+                                    </svg> &nbsp; 97180015
+                                </a>
+                            </p>
+                            <p>
+                                <a href="emailto:SALES@auralius.COM">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewbox="0 0 20 15"
+                                        fill="none">
+                                        <g clip-path="url(#clip0)">
+                                            <path
+                                                d="M10.0002 6.45301L19.1287 0.588728C18.7617 0.313452 18.3161 0.163228 17.8573 0.160156H2.14301C1.68425 0.163228 1.23859 0.313452 0.871582 0.588728L10.0002 6.45301Z"
+                                                fill="#FFFFFF"></path>
+                                            <path
+                                                d="M10.3857 7.90299L10.2643 7.96013H10.2071C10.1414 7.98951 10.0715 8.00878 10 8.01727C9.94071 8.02474 9.88072 8.02474 9.82143 8.01727H9.76429L9.64286 7.96013L0.0714285 1.77441C0.0256986 1.94694 0.00170336 2.12451 0 2.30299V12.303C0 12.8713 0.225765 13.4164 0.627628 13.8182C1.02949 14.2201 1.57454 14.4458 2.14286 14.4458H17.8571C18.4255 14.4458 18.9705 14.2201 19.3724 13.8182C19.7742 13.4164 20 12.8713 20 12.303V2.30299C19.9983 2.12451 19.9743 1.94694 19.9286 1.77441L10.3857 7.90299Z"
+                                                fill="#FFFFFF"></path>
+                                        </g>
+                                        <defs>
+                                            <clippath id="clip0">
+                                                <rect width="20" height="14.2857" fill="white"
+                                                    transform="translate(0 0.160156)"></rect>
+                                            </clippath>
+                                        </defs>
+                                    </svg> &nbsp; <span class="__cf_email__"
+                                        data-cfemail="c390828f869083818a8d848b8297978aed808c8e">[email&#160;protected]</span></a>
+                            </p>
+                            <p>
+                                <a href="https://maps.app.goo.gl/kAEHxYVwrCebq7Up8">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="21" viewbox="0 0 16 21"
+                                        fill="none">
+                                        <path d="M8.27351 1.19633C12.0836 1.21042 15.2633 4.59135 15.25 8.87779V8.88013V8.96863C15.1995 11.7371 13.7672 14.3584 11.9265 16.4658C10.8758 17.6487 9.70383 18.6948 8.43417 19.5837C8.40495 19.6042 8.37722 19.6267 8.3512 19.6511C8.31286 19.6871 8.27698 19.6963 8.24995 19.6963C8.22293 19.6963 8.18705 19.6871 8.14871 19.6511C8.1234 19.6274 8.09646 19.6054 8.0681 19.5854C6.1755 18.2493 4.5113 16.5603 3.15341 14.5937L3.149 14.5874C1.9847 12.9375 1.31842 10.9288 1.25 8.8395V8.82421C1.264 4.53856 4.46423 1.18234 8.27351 1.19633Z
+                     M8.27351 1.19633L8.27629 0.446338L8.27351 1.19633Z" stroke="white" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path
+                                            d="M8.30148 11.2397C9.87944 11.2397 11.1586 9.96049 11.1586 8.38253C11.1586 6.80458 9.87944 5.52539 8.30148 5.52539C6.72352 5.52539 5.44434 6.80458 5.44434 8.38253C5.44434 9.96049 6.72352 11.2397 8.30148 11.2397Z"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round"></path>
+                                    </svg> &nbsp; SHEIKH ZAYED ROAD <br> DUBAI, UAE 341186</a>
+                            </p>
+                            <button class="custom-btn video-call-click">CONNECT WITH A BRAND AMBASSADOR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-popup terms-and-conditions">
+        <div class="xmark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                <rect x="23.4375" y="23.4375" width="22.875" height="22.875" rx="11.4375"
+                    transform="rotate(-180 23.4375 23.4375)" fill="white" fill-opacity="0.16"></rect>
+                <rect x="23.4375" y="23.4375" width="22.875" height="22.875" rx="11.4375"
+                    transform="rotate(-180 23.4375 23.4375)" stroke="white" stroke-width="1.125"></rect>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M16.1655 8.38083C16.4119 8.10721 16.3898 7.68568 16.1162 7.43931C15.8426 7.19294 15.421 7.21503 15.1747 7.48865L11.9089 11.1157L8.82637 7.68148C8.58042 7.40748 8.15893 7.38473 7.88493 7.63068C7.61093 7.87662 7.58818 8.29812 7.83413 8.57211L11.0117 12.1121L8.03727 15.4155C7.7909 15.6891 7.81299 16.1107 8.08661 16.357C8.36023 16.6034 8.78176 16.5813 9.02813 16.3077L11.9073 13.11L14.9592 16.51C15.2052 16.784 15.6267 16.8068 15.9007 16.5608C16.1747 16.3149 16.1974 15.8934 15.9515 15.6194L12.8046 12.1135L16.1655 8.38083Z"
+                    fill="white"></path>
+            </svg>
+        </div>
+        <div class="main-popup-box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="terms-and-conditions-result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="container container-full">
+            <div class="row">
+                <div class="col-lg-6 col-6">
+                    <div class="main-header-left">
+                        <div class="logo">
+                            <a href="/">
+                                <img src="../../logo.svg" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-6">
+
+                    <div class="main-header-right">
+                        <div class="search-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="31" height="32" viewbox="0 0 31 32"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M20.2321 18.6502C21.8619 16.7037 22.8431 14.1953 22.8431 11.4576C22.8431 5.26756 17.8267 0.249512 11.6388 0.249512C5.45082 0.249512 0.434479 5.26756 0.434479 11.4576C0.434479 17.6477 5.45082 22.6658 11.6388 22.6658C13.9047 22.6658 16.0135 21.9929 17.7764 20.8361C17.8236 20.8993 17.8759 20.9599 17.9333 21.0173L28.1833 31.2673C28.8276 31.9117 29.8724 31.9117 30.5167 31.2673C31.1611 30.6229 31.1611 29.5782 30.5167 28.9339L20.2667 18.6839C20.2553 18.6724 20.2438 18.6612 20.2321 18.6502ZM11.6388 19.4099C6.84266 19.4099 3.10524 15.6753 3.10524 11.4253C3.10524 6.67529 6.85001 3.17529 11.6388 3.17529C16.35 3.17529 19.85 6.67529 19.85 11.4253C19.85 16.1753 16.667 19.4099 11.6388 19.4099Z"
+                                    fill="white"></path>
+                            </svg>
+                            <!-- <svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M368 208A160 160 0 1 0 48 208a160 160 0 1 0 320 0zM337.1 371.1C301.7 399.2 256.8 416 208 416C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208c0 48.8-16.8 93.7-44.9 129.1L505 471c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L337.1 371.1z"/></svg> -->
+                        </div>
+                        <div class="menu-icon">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="contact-list">
+        <a href="/#call-popup" class="desktop open-call-popup" role="button" aria-label="Open call popup">
+            <!-- <a class="desktop open-call-popup"> -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16" fill="none">
+                <path
+                    d="M12.7463 15.8747C12.0601 15.8747 11.0961 15.6265 9.65255 14.82C7.8972 13.8356 6.53947 12.9268 4.79361 11.1855C3.11033 9.50331 2.29119 8.41417 1.14474 6.32799C-0.150415 3.97252 0.070366 2.73784 0.317163 2.21014C0.611069 1.57944 1.0449 1.20221 1.60564 0.827799C1.92414 0.619124 2.26119 0.440242 2.61251 0.293424C2.64767 0.278307 2.68037 0.263893 2.70955 0.250885C2.88357 0.172486 3.14724 0.0540098 3.48123 0.180572C3.70412 0.264244 3.9031 0.435455 4.21458 0.743072C4.85337 1.37307 5.7263 2.77616 6.04833 3.46522C6.26454 3.92963 6.40763 4.2362 6.40798 4.58002C6.40798 4.98256 6.20548 5.29299 5.95974 5.62803C5.91369 5.69096 5.86798 5.75108 5.82369 5.80944C5.55615 6.161 5.49744 6.2626 5.53611 6.44401C5.61451 6.80858 6.19915 7.89385 7.15997 8.85256C8.12079 9.81127 9.17478 10.359 9.54076 10.4371C9.7299 10.4775 9.83361 10.4163 10.1964 10.1393C10.2485 10.0996 10.3019 10.0584 10.3578 10.0173C10.7326 9.7385 11.0286 9.54128 11.4216 9.54128H11.4237C11.7658 9.54128 12.0586 9.68963 12.5438 9.93432C13.1766 10.2535 14.6219 11.1152 15.2558 11.7547C15.5641 12.0655 15.736 12.2638 15.82 12.4863C15.9466 12.8214 15.8274 13.084 15.7497 13.2598C15.7367 13.2889 15.7223 13.3209 15.7072 13.3564C15.5592 13.7071 15.3792 14.0435 15.1696 14.3612C14.7959 14.9202 14.4173 15.353 13.7852 15.6472C13.4606 15.8007 13.1053 15.8785 12.7463 15.8747Z"
+                    fill="white"></path>
+            </svg>
+        </a>
+        <a class="mobile" href="tel:+97180015">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16" fill="none">
+                <path
+                    d="M12.7463 15.8747C12.0601 15.8747 11.0961 15.6265 9.65255 14.82C7.8972 13.8356 6.53947 12.9268 4.79361 11.1855C3.11033 9.50331 2.29119 8.41417 1.14474 6.32799C-0.150415 3.97252 0.070366 2.73784 0.317163 2.21014C0.611069 1.57944 1.0449 1.20221 1.60564 0.827799C1.92414 0.619124 2.26119 0.440242 2.61251 0.293424C2.64767 0.278307 2.68037 0.263893 2.70955 0.250885C2.88357 0.172486 3.14724 0.0540098 3.48123 0.180572C3.70412 0.264244 3.9031 0.435455 4.21458 0.743072C4.85337 1.37307 5.7263 2.77616 6.04833 3.46522C6.26454 3.92963 6.40763 4.2362 6.40798 4.58002C6.40798 4.98256 6.20548 5.29299 5.95974 5.62803C5.91369 5.69096 5.86798 5.75108 5.82369 5.80944C5.55615 6.161 5.49744 6.2626 5.53611 6.44401C5.61451 6.80858 6.19915 7.89385 7.15997 8.85256C8.12079 9.81127 9.17478 10.359 9.54076 10.4371C9.7299 10.4775 9.83361 10.4163 10.1964 10.1393C10.2485 10.0996 10.3019 10.0584 10.3578 10.0173C10.7326 9.7385 11.0286 9.54128 11.4216 9.54128H11.4237C11.7658 9.54128 12.0586 9.68963 12.5438 9.93432C13.1766 10.2535 14.6219 11.1152 15.2558 11.7547C15.5641 12.0655 15.736 12.2638 15.82 12.4863C15.9466 12.8214 15.8274 13.084 15.7497 13.2598C15.7367 13.2889 15.7223 13.3209 15.7072 13.3564C15.5592 13.7071 15.3792 14.0435 15.1696 14.3612C14.7959 14.9202 14.4173 15.353 13.7852 15.6472C13.4606 15.8007 13.1053 15.8785 12.7463 15.8747Z"
+                    fill="white"></path>
+            </svg>
+        </a>
+        <a href="https://wa.me/+97180015?text=I am interested in the Project" target="_blank"
+            aria-label="Chat with us on WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewbox="0 0 18 19" fill="none">
+                <path
+                    d="M13.2019 10.8734C13.021 10.783 11.8455 10.2405 11.6647 10.1501C11.4838 10.0596 11.303 10.0596 11.1221 10.2405C10.9413 10.4213 10.5796 10.9639 10.3987 11.1447C10.3083 11.3256 10.1275 11.3256 9.94661 11.2351C9.31364 10.9639 8.68067 10.6022 8.13813 10.1501C7.68601 9.69794 7.2339 9.1554 6.8722 8.61286C6.78178 8.43201 6.8722 8.25116 6.96262 8.16074C7.05305 8.07031 7.14347 7.88947 7.32432 7.79904C7.41474 7.70862 7.50517 7.52777 7.50517 7.43735C7.59559 7.34692 7.59559 7.16608 7.50517 7.07565C7.41474 6.98523 6.96262 5.90015 6.78178 5.44803C6.69135 4.81506 6.51051 4.81506 6.32966 4.81506H5.87754C5.69669 4.81506 5.42542 4.99591 5.335 5.08633C4.79246 5.62888 4.52118 6.26184 4.52118 6.98523C4.61161 7.79904 4.88288 8.61286 5.42542 9.33625C6.42008 10.783 7.68601 11.9585 9.22322 12.6819C9.67534 12.8628 10.037 13.0436 10.4891 13.134C10.9413 13.3149 11.3934 13.3149 11.9359 13.2245C12.5689 13.134 13.1114 12.6819 13.4731 12.1394C13.654 11.7777 13.654 11.416 13.5636 11.0543L13.2019 10.8734ZM15.4625 2.64489C11.9359 -0.881631 6.23924 -0.881631 2.71271 2.64489C-0.180847 5.53845 -0.72339 9.96921 1.26593 13.4957L0 18.1073L4.79246 16.8414C6.14881 17.5648 7.59559 17.9265 9.04237 17.9265C14.0157 17.9265 17.9943 13.9479 17.9943 8.97455C18.0847 6.62354 17.0901 4.36294 15.4625 2.64489ZM13.021 15.3042C11.8455 16.0276 10.4891 16.4797 9.04237 16.4797C7.68601 16.4797 6.42008 16.118 5.24457 15.4851L4.9733 15.3042L2.17017 16.0276L2.89356 13.3149L2.71271 13.0436C0.542542 9.42667 1.62763 4.90549 5.15415 2.64489C8.68067 0.384301 13.2019 1.55981 15.372 4.99591C17.5422 8.52243 16.5475 13.134 13.021 15.3042Z"
+                    fill="white"></path>
+            </svg>
+        </a>
+        <a href="#" role="button" class="video-call-click" aria-label="Start video call">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="11" viewbox="0 0 19 11" fill="none">
+                <path
+                    d="M18.5071 9.29405C18.4914 10.0688 17.8706 10.3303 17.269 9.90151C16.1471 9.11629 15.033 8.32025 13.9145 7.53071C13.9173 7.89611 13.9124 8.75676 13.9142 9.13113C13.9139 9.82546 13.5689 10.1634 12.8601 10.1637L6.82067 10.1643C5.79741 10.1646 4.77447 10.1649 3.75121 10.1637C1.81691 10.1615 0.516976 8.89433 0.516357 7.01011V1.07306C0.516357 0.368835 0.850539 0.0405273 1.56744 0.0405273C4.02542 0.0872077 8.32001 0.0457822 10.7298 0.0414543C12.4378 0.0433091 13.6734 1.10552 13.8799 2.67534C15.0101 1.87775 16.1357 1.07368 17.269 0.280111C17.7918 -0.0992052 18.4799 0.0225975 18.5071 0.887884C18.5146 3.604 18.5235 6.57268 18.5071 9.29405Z"
+                    fill="white"></path>
+            </svg>
+        </a>
+    </div>
+    <section class="register-your-interest">
+        <div class="intro container">
+            <div class="texts ">
+                <h2 class="heading">
+                    WHY <span>auralius Skyblade?</span>
+                </h2>
+                <p>auralius Skyblade is a bold architectural statement on <b>Burj Khalifa Boulevard</b>, rising as a
+                    luminous landmark in Dubai’s skyline. More than a residence, it represents innovation and artistry
+                    with its iconic crown and instantly recognizable silhouette.
+                    <br><br>Set in Downtown Dubai, Skyblade offers panoramic views of the world’s tallest tower, The
+                    Burj Khalifa, and Dubai Water Canal , while ensuring direct access to <b>Sheikh Zayed Road, Al Khail
+                        Road, and Marasi Drive</b>. Inside, residents enjoy <b>ultra-luxury amenities</b>, including a
+                    rooftop infinity pool, skyline gym, and a one-of-a-kind garden floor in the sky.
+                </p>
+            </div>
+            <a class="custom-btn btn-border open-call-popup-for-lead">REGISTER YOUR INTEREST</a>
+        </div>
+    </section>
+
+    <section class="vh project-details">
+        <!-- <div class="main-bg-video">
+            <video autoplay="" playsinline="" muted="" loop="" class="interest-video">
+                <source src="https://auraliusweb.imgix.video/ultra-high-F.mp4?fm=mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+        </div> -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- First Owl Slider (Animated) -->
+                <div class="col-lg-12">
+                    <div class="project-details-text">
+                        <div class="owl-carousel project-details-slider-1">
+                            <div class="project-details-content">
+                                <h3>Relax closer to home with a serene leisure space</h3>
+                            </div>
+                            <div class="project-details-content">
+                                <h3>Swim with uninterrupted views of the Burj Khalifa</h3>
+                            </div>
+                            <div class="project-details-content">
+                                <h3>A fitness center in the sky</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-lg-2"></div> -->
+
+                <!-- Second Owl Slider (Images + Custom Arrows) -->
+                <div class="image-slider">
+                    <div class="project-details-slider">
+                        <div class="owl-carousel project-details-slider-2">
+                            <div class="item">
+                                <img src="../assets/img/auralius-skyblade-amenities-1.webp"
+                                    alt="auralius SKyblade Amenities">
+                            </div>
+                            <div class="item">
+                                <img src="../assets/img/auralius-skyblade-amenities-2.webp"
+                                    alt="auralius Skyblade Amenities">
+                            </div>
+                            <div class="item">
+                                <img src="../assets/img/auralius-skyblade-amenities-3.webp"
+                                    alt="auralius Skyblade Amenities">
+                            </div>
+                        </div>
+
+                        <!-- Custom Navigation Arrows -->
+                        <div class="project-details-slider-arrow-left">
+                            <svg width="35" fill="#fff" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 320 512">
+                                <path
+                                    d="M50.3 261.7c-3.1-3.1-3.1-8.2 0-11.3l176-176c3.1-3.1 8.2-3.1 11.3 0s3.1 8.2 0 11.3L67.3 256 237.7 426.3c3.1 3.1 3.1 8.2 0 11.3s-8.2 3.1-11.3 0l-176-176z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="project-details-slider-arrow-right">
+                            <svg width="35" fill="#fff" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 320 512">
+                                <path
+                                    d="M269.7 250.3c3.1 3.1 3.1 8.2 0 11.3l-176 176c-3.1 3.1-8.2 3.1-11.3 0s-3.1-8.2 0-11.3L252.7 256 82.3 85.7c-3.1-3.1-3.1-8.2 0-11.3s8.2-3.1 11.3 0l176 176z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="register-your-interest">
+        <a class="custom-btn btn-border open-call-popup-for-lead">REGISTER YOUR INTEREST</a>
+    </section>
+
+    <section class="vh project-details-tab-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Project Tabs -->
+                    <div class="project-tabs">
+                        <div class="project-tab-link active" data-project-tab="project-tab1">LOCATION</div>
+                        <div class="small-border"></div>
+                        <div class="project-tab-link" data-project-tab="project-tab2">GALLERY</div>
+                        <div class="small-border"></div>
+                        <div class="project-tab-link" data-project-tab="project-tab3">Floor&nbsp;Plans</div>
+                        <div class="small-border"></div>
+                        <div class="project-tab-link" data-project-tab="project-tab4">BROCHURE</div>
+                        <!-- <div class="small-border"></div> -->
+                        <!-- <div class="project-tab-link" data-project-tab="project-tab5">STATUS</div> -->
+                        <!-- <div class="small-border"></div> -->
+                        <!-- <div class="project-tab-link" data-project-tab="project-tab6">DOWNLOAD ASSETS</div>
+                        <div class="small-border"></div> -->
+                        <!-- <div class="project-tab-link" data-project-tab="project-tab7">Progress</div> -->
+                    </div>
+
+                    <!-- Project Tab Content Container -->
+                    <div class="project-tab-container">
+                        <div id="project-tab1" class="project-tab-content active">
+
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57763.76179538861!2d55.23249799404354!3d25.19529251820739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6900617be78d%3A0xb6e67c572c08503b!2sauralius%20Skyblade!5e0!3m2!1sen!2sae!4v1756448815791!5m2!1sen!2sae"
+                                width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div id="project-tab2" class="project-tab-content">
+                            <div class="project-details-slider-tabs">
+                                <div class="project-details-tab-slider owl-carousel">
+                                    <div class="project-details-tab-slider-content project-details-tab-slide-active">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-studio-bedroom.webp');">
+                                        </div>
+                                        <h2> <br class="mobile">BEDROOM</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content project-details-tab-slide-active">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-bedroom-1.webp');">
+                                        </div>
+                                        <h2> <br class="mobile">BEDROOM</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-bedroom-2.webp');">
+                                        </div>
+                                        <h2> <br class="mobile">BEDROOM</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-bedroom-3.webp');">
+                                        </div>
+                                        <h2> <br class="mobile">BEDROOM</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-exterior-1.webp');">
+                                        </div>
+                                        <h2> <br class="mobile">EXTERIOR</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-exterior-2.webp');">
+                                        </div>
+                                        <h2><br class="mobile">EXTERIOR</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-exterior-3.webp');">
+                                        </div>
+                                        <h2><br class="mobile">EXTERIOR</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-exterior-4.webp');">
+                                        </div>
+                                        <h2><br class="mobile">EXTERIOR</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-exterior-5.webp');">
+                                        </div>
+                                        <h2><br class="mobile">EXTERIOR</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-exterior-6.webp');">
+                                        </div>
+                                        <h2><br class="mobile">EXTERIOR</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-living-room-1.webp');">
+                                        </div>
+                                        <h2><br class="mobile">Living Room</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-living-room-2.webp');">
+                                        </div>
+                                        <h2><br class="mobile">Living Room</h2>
+                                    </div>
+                                    <!-- <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-moonlight-living-room-3.webp');">
+                                        </div>
+                                        <h2><br class="mobile">Living Room</h2>
+                                    </div> -->
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-lobby-1.webp');">
+                                        </div>
+                                        <h2><br class="mobile">Lobby</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-lobby-2.webp');">
+                                        </div>
+                                        <h2><br class="mobile">Lobby</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-lobby-3.webp');">
+                                        </div>
+                                        <h2><br class="mobile">Lobby</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-studio-layout.webp');">
+                                        </div>
+                                        <h2><br class="mobile">LAYOUT Studio</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-one-bedroom-layout.webp');">
+                                        </div>
+                                        <h2><br class="mobile">LAYOUT 1 BEDROOM</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-two-bedroom-layout.webp');">
+                                        </div>
+                                        <h2><br class="mobile">LAYOUT 2 BEDROOM</h2>
+                                    </div>
+                                    <div class="project-details-tab-slider-content">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-three-bedroom-layout.webp');">
+                                        </div>
+                                        <h2><br class="mobile">LAYOUT 3 BEDROOM</h2>
+                                    </div>
+                                </div>
+                                <div class="project-details-tab-slider-arrow-left"><i
+                                        class="fa-thin fa-angle-left"></i><svg width="35" fill="#fff"
+                                        xmlns="http://www.w3.org/2000/svg" viewbox="0 0 320 512">
+                                        <path
+                                            d="M50.3 261.7c-3.1-3.1-3.1-8.2 0-11.3l176-176c3.1-3.1 8.2-3.1 11.3 0s3.1 8.2 0 11.3L67.3 256 237.7 426.3c3.1 3.1 3.1 8.2 0 11.3s-8.2 3.1-11.3 0l-176-176z">
+                                        </path>
+                                    </svg></div>
+                                <div class="project-details-tab-slider-arrow-right"><i
+                                        class="fa-thin fa-angle-right"></i><svg width="35" fill="#fff"
+                                        xmlns="http://www.w3.org/2000/svg" viewbox="0 0 320 512">
+                                        <path
+                                            d="M269.7 250.3c3.1 3.1 3.1 8.2 0 11.3l-176 176c-3.1 3.1-8.2 3.1-11.3 0s-3.1-8.2 0-11.3L252.7 256 82.3 85.7c-3.1-3.1-3.1-8.2 0-11.3s8.2-3.1 11.3 0l176 176z">
+                                        </path>
+                                    </svg></div>
+                            </div>
+                        </div>
+                        <div id="project-tab3" class="project-tab-content">
+                            <ul class="units-list">
+                                <li data-unit="studio">Studio</li>
+                                <li data-unit="one-bedroom">1 Bedroom</li>
+                                <li data-unit="two-bedroom">2 Bedroom</li>
+                                <li data-unit="three-bedroom">3 Bedroom</li>
+                            </ul>
+                            <div class="mobile-dropdown">
+                                <div class="dropdown">
+                                    <select name="units" id="units">
+                                        <option value="studio">Studio</option>
+                                        <option value="one-bedroom">1 Bedroom</option>
+                                        <option value="two-bedroom">2 Bedroom</option>
+                                        <option value="three-bedroom">3 Bedroom</option>
+                                    </select>
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </div>
+                            </div>
+
+                            <div class="studio-img floor-plan-image" data-unit="studio">
+                                <img src="../assets/img/auralius-skyblade-studio-layout.webp" alt="floor plan image">
+                            </div>
+                            <div class="one-bedroom-img floor-plan-image" data-unit="one-bedroom">
+                                <img src="../assets/img/auralius-skyblade-one-bedroom-layout.webp"
+                                    alt="floor plan image">
+                            </div>
+                            <div class="two-bedroom-img floor-plan-image" data-unit="two-bedroom">
+                                <img src="../assets/img/auralius-skyblade-two-bedroom-layout.webp"
+                                    alt="floor plan image">
+                            </div>
+                            <div class="three-bedroom-img floor-plan-image" data-unit="three-bedroom">
+                                <img src="../assets/img/auralius-skyblade-three-bedroom-layout.webp"
+                                    alt="floor plan image">
+                            </div>
+                        </div>
+                        <div id="project-tab4" class="project-tab-content">
+                            <div class="project-details-slider-tabs">
+                                <div class="project-details-tab-slider owl-carousel">
+                                    <div class="project-details-tab-slider-content project-details-tab-slide-active"
+                                        data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-skyblade-assets/auralius-skyblade-digital-brochure.pdf">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-brochure-cover.webp');">
+                                        </div>
+                                        <!-- <a class="custom-btn" data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-flare-assets/auralius-flare-digital-brochure.pdf">DOWNLOAD</a> -->
+                                    </div>
+                                    <div class="project-details-tab-slider-content"
+                                        data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-skyblade-assets/auralius-skyblade-project-facts.pdf">
+                                        <div class="project-details-tab-zoom-image"
+                                            style="background-image:url('../assets/img/auralius-skyblade-brochure-project-facts.webp');">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="project-details-tab-slider-arrow-left"><i
+                                        class="fa-thin fa-angle-left"></i><svg width="35" fill="#fff"
+                                        xmlns="http://www.w3.org/2000/svg" viewbox="0 0 320 512">
+                                        <path
+                                            d="M50.3 261.7c-3.1-3.1-3.1-8.2 0-11.3l176-176c3.1-3.1 8.2-3.1 11.3 0s3.1 8.2 0 11.3L67.3 256 237.7 426.3c3.1 3.1 3.1 8.2 0 11.3s-8.2 3.1-11.3 0l-176-176z">
+                                        </path>
+                                    </svg></div>
+                                <div class="project-details-tab-slider-arrow-right"><i
+                                        class="fa-thin fa-angle-right"></i><svg width="35" fill="#fff"
+                                        xmlns="http://www.w3.org/2000/svg" viewbox="0 0 320 512">
+                                        <path
+                                            d="M269.7 250.3c3.1 3.1 3.1 8.2 0 11.3l-176 176c-3.1 3.1-8.2 3.1-11.3 0s-3.1-8.2 0-11.3L252.7 256 82.3 85.7c-3.1-3.1-3.1-8.2 0-11.3s8.2-3.1 11.3 0l176 176z">
+                                        </path>
+                                    </svg></div>
+                            </div>
+                        </div>
+                        <div id="project-tab5" class="project-tab-content">
+                            <iframe class="youtube-video" style=" width: 100%; height: 500px; border: 0;" width="100%"
+                                height="500"
+                                src="https://www.youtube.com/embed/DwBk6wGQx88?controls=0&rel=0&autoplay=0&enablejsapi=1"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen="">
+                            </iframe>
+
+                        </div>
+                        <div id="project-tab6" class="project-tab-content">
+                            <div class="project-details-download-assets-box">
+                                <div class="project-details-download-assets">
+                                    <ul>
+                                        <li>
+                                            <svg width="35" fill="#fff" xmlns="http://www.w3.org/2000/svg"
+                                                viewbox="0 0 512 512">
+                                                <path
+                                                    d="M256 16c-26.5 0-48 21.5-48 48l0 384c0 26.5 21.5 48 48 48l192 0c26.5 0 48-21.5 48-48l0-384c0-26.5-21.5-48-48-48L256 16zM192 64c0-35.3 28.7-64 64-64L448 0c35.3 0 64 28.7 64 64l0 384c0 35.3-28.7 64-64 64l-192 0c-35.3 0-64-28.7-64-64l0-384zM56 128l104 0 0 16L56 144c-22.1 0-40 17.9-40 40l0 272c0 22.1 17.9 40 40 40l116.8 0c3.3 5.7 7.2 11.1 11.6 16L56 512c-30.9 0-56-25.1-56-56L0 184c0-30.9 25.1-56 56-56zm8 216c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32zm24-8c-4.4 0-8 3.6-8 8l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0zm0-144l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32c0-13.3 10.7-24 24-24zm-8 24l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8zM368 376l0-32c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24zm24 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8l0 32c0 4.4 3.6 8 8 8zm0-112c-13.3 0-24-10.7-24-24l0-32c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0zm-8-24c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8l0 32zM256 376l0-32c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24zm24 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8l0 32c0 4.4 3.6 8 8 8zm0-312l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32c0-13.3 10.7-24 24-24zm-8 24l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8zM256 248l0-32c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24zm24 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8l0 32c0 4.4 3.6 8 8 8zM392 72l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32c0-13.3 10.7-24 24-24zm-8 24l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8z">
+                                                </path>
+                                            </svg>
+                                            <a
+                                                data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-skyblade-assets/auralius-skyblade-digital-brochure.pdf">Brochure</a>
+                                        </li>
+                                        <li>
+                                            <svg width="40" fill="#fff" xmlns="http://www.w3.org/2000/svg"
+                                                viewbox="0 0 640 512">
+                                                <path
+                                                    d="M48 16l288 0c17.7 0 32 14.3 32 32l0 199.2c5-5.3 10.4-10.3 16-15L384 48c0-26.5-21.5-48-48-48L48 0C21.5 0 0 21.5 0 48L0 464c0 26.5 21.5 48 48 48l96 0 16 0 64 0 16 0 96 0c15.1 0 28.5-6.9 37.3-17.8c-3.9-3.8-7.6-7.7-11.1-11.8c-5.8 8.2-15.4 13.6-26.2 13.6l-96 0 0-80c0-26.5-21.5-48-48-48s-48 21.5-48 48l0 80-96 0c-17.7 0-32-14.3-32-32L16 48c0-17.7 14.3-32 32-32zM224 496l-64 0 0-80c0-17.7 14.3-32 32-32s32 14.3 32 32l0 80zM104 232c-13.3 0-24 10.7-24 24l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0zm-8 24c0-4.4 3.6-8 8-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32zm128 0l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0c-13.3 0-24 10.7-24 24zm24-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32c0-4.4 3.6-8 8-8zM104 104c-13.3 0-24 10.7-24 24l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0zm-8 24c0-4.4 3.6-8 8-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32zm128 0l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0c-13.3 0-24 10.7-24 24zm24-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32c0-4.4 3.6-8 8-8zM496 240a128 128 0 1 1 0 256 128 128 0 1 1 0-256zm0 272a144 144 0 1 0 0-288 144 144 0 1 0 0 288zm69.7-189.7c-3.1-3.1-8.2-3.1-11.3 0L480 396.7l-42.3-42.3c-3.1-3.1-8.2-3.1-11.3 0s-3.1 8.2 0 11.3l48 48c3.1 3.1 8.2 3.1 11.3 0l80-80c3.1-3.1 3.1-8.2 0-11.3z">
+                                                </path>
+                                            </svg>
+                                            <a
+                                                data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-skyblade-assets/auralius-skyblade-project-facts.pdf">Project
+                                                Facts</a>
+                                        </li>
+                                        <li>
+                                            <svg width="25" fill="#fff" xmlns="http://www.w3.org/2000/svg"
+                                                viewbox="0 0 384 512">
+                                                <path
+                                                    d="M48 16C30.3 16 16 30.3 16 48l0 416c0 17.7 14.3 32 32 32l96 0 0-80c0-26.5 21.5-48 48-48s48 21.5 48 48l0 80 96 0c17.7 0 32-14.3 32-32l0-416c0-17.7-14.3-32-32-32L48 16zM160 496l64 0 0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80zm-16 16l-96 0c-26.5 0-48-21.5-48-48L0 48C0 21.5 21.5 0 48 0L336 0c26.5 0 48 21.5 48 48l0 416c0 26.5-21.5 48-48 48l-96 0-16 0-64 0-16 0zM104 232l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32c0-13.3 10.7-24 24-24zm-8 24l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8zm128 0c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32zm24-8c-4.4 0-8 3.6-8 8l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0zM104 104l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32c0-13.3 10.7-24 24-24zm-8 24l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8zm128 0c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32zm24-8c-4.4 0-8 3.6-8 8l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0z">
+                                                </path>
+                                            </svg>
+                                            <a
+                                                data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-skyblade-assets/auralius-skyblade-project-images.zip">Project
+                                                Images</a>
+                                        </li>
+                                        <li>
+                                            <svg width="40" fill="#fff" xmlns="http://www.w3.org/2000/svg"
+                                                viewbox="0 0 640 512">
+                                                <path
+                                                    d="M48 16l288 0c17.7 0 32 14.3 32 32l0 133.4c5.2-3 10.5-5.7 16-8.1L384 48c0-26.5-21.5-48-48-48L48 0C21.5 0 0 21.5 0 48L0 464c0 26.5 21.5 48 48 48l96 0 16 0 64 0 16 0 96 0c25.6 0 46.6-20.1 47.9-45.3c-5.5-2.4-10.8-5.1-15.9-8.1l0 5.4c0 17.7-14.3 32-32 32l-96 0 0-80c0-26.5-21.5-48-48-48s-48 21.5-48 48l0 80-96 0c-17.7 0-32-14.3-32-32L16 48c0-17.7 14.3-32 32-32zM280 232l-32 0c-13.3 0-24 10.7-24 24l0 32c0 13.3 10.7 24 24 24l32 0c2.9 0 5.7-.5 8.3-1.5c1.2-21.2 6.6-41.2 15.2-59.4C301.3 240.2 291.6 232 280 232zM224 496l-64 0 0-80c0-17.7 14.3-32 32-32s32 14.3 32 32l0 80zM104 232c-13.3 0-24 10.7-24 24l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0zm-8 24c0-4.4 3.6-8 8-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32zm152-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32c0-4.4 3.6-8 8-8zM104 104c-13.3 0-24 10.7-24 24l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0zm-8 24c0-4.4 3.6-8 8-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32zm128 0l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0c-13.3 0-24 10.7-24 24zm24-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32c0-4.4 3.6-8 8-8zm200 88.1a112 112 0 1 1 0 224 112 112 0 1 1 0-224zm0 240c32.5 0 62.1-12.1 84.7-32l93.7 93.7c3.1 3.1 8.2 3.1 11.3 0s3.1-8.2 0-11.3L544 404.8c19.9-22.6 32-52.2 32-84.7c0-70.7-57.3-128-128-128s-128 57.3-128 128s57.3 128 128 128z">
+                                                </path>
+                                            </svg>
+                                            <a
+                                                data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-skyblade-assets/auralius-skyblade-floorplan.pdf">Floor
+                                                Plans</a>
+                                        </li>
+                                        <li>
+                                            <svg width="40" fill="#fff" xmlns="http://www.w3.org/2000/svg"
+                                                viewbox="0 0 640 512">
+                                                <path
+                                                    d="M48 16l288 0c17.7 0 32 14.3 32 32l0 330.4c5-3.9 10.4-7.5 16-10.7l0-95.9L384 48c0-26.5-21.5-48-48-48L48 0C21.5 0 0 21.5 0 48L0 464c0 26.5 21.5 48 48 48l96 0 16 0 64 0 16 0 89.9 0c-3-4.9-5.5-10.3-7.2-16L240 496l0-80c0-26.5-21.5-48-48-48s-48 21.5-48 48l0 80-96 0c-17.7 0-32-14.3-32-32L16 48c0-17.7 14.3-32 32-32zM224 496l-64 0 0-80c0-17.7 14.3-32 32-32s32 14.3 32 32l0 80zM104 232c-13.3 0-24 10.7-24 24l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0zm-8 24c0-4.4 3.6-8 8-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32zm128 0l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0c-13.3 0-24 10.7-24 24zm24-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32c0-4.4 3.6-8 8-8zM104 104c-13.3 0-24 10.7-24 24l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0zm-8 24c0-4.4 3.6-8 8-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32zm128 0l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0c-13.3 0-24 10.7-24 24zm24-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32c0-4.4 3.6-8 8-8zM432 272a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zM368 477.1c0-42.6 34.5-77.1 77.1-77.1l101.8 0c42.6 0 77.1 34.5 77.1 77.1c0 10.4-8.5 18.9-18.9 18.9l-218.2 0c-10.4 0-18.9-8.5-18.9-18.9zM496 352a80 80 0 1 0 0-160 80 80 0 1 0 0 160zm-50.9 32c-51.4 0-93.1 41.7-93.1 93.1c0 19.3 15.6 34.9 34.9 34.9l218.2 0c19.3 0 34.9-15.6 34.9-34.9c0-51.4-41.7-93.1-93.1-93.1l-101.8 0z">
+                                                </path>
+                                            </svg>
+                                            <a
+                                                data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-skyblade-assets/auralius-skyblade-project-location.pdf">Project
+                                                Location</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <a class="custom-btn"
+                                    data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-skyblade-assets/auralius-skyblade-all-assets.zip">DOWNLOAD
+                                    ALL ASSETS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- col-lg-12 -->
+                <div class="col-lg-12 down-btn text-center my-4">
+                    <a class="custom-btn" onclick="openAssetsPopup()">Project Assets</a>
+
+                    <!-- Popup Overlay -->
+                    <div id="assetsPopup" class="popup-overlay">
+                        <div class="popup-content">
+                            <div class="xmark" onclick="closeAssetsPopup()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"
+                                    fill="none">
+                                    <rect x="23.4375" y="23.4375" width="22.875" height="22.875" rx="11.4375"
+                                        transform="rotate(-180 23.4375 23.4375)" fill="white" fill-opacity="0.16">
+                                    </rect>
+                                    <rect x="23.4375" y="23.4375" width="22.875" height="22.875" rx="11.4375"
+                                        transform="rotate(-180 23.4375 23.4375)" stroke="white" stroke-width="1.125">
+                                    </rect>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16.1655 8.38083C16.4119 8.10721 16.3898 7.68568 16.1162 7.43931C15.8426 7.19294 15.421 7.21503 15.1747 7.48865L11.9089 11.1157L8.82637 7.68148C8.58042 7.40748 8.15893 7.38473 7.88493 7.63068C7.61093 7.87662 7.58818 8.29812 7.83413 8.57211L11.0117 12.1121L8.03727 15.4155C7.7909 15.6891 7.81299 16.1107 8.08661 16.357C8.36023 16.6034 8.78176 16.5813 9.02813 16.3077L11.9073 13.11L14.9592 16.51C15.2052 16.784 15.6267 16.8068 15.9007 16.5608C16.1747 16.3149 16.1974 15.8934 15.9515 15.6194L12.8046 12.1135L16.1655 8.38083Z"
+                                        fill="white"></path>
+                                </svg>
+                            </div>
+                            <!-- <span class="close-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <rect x="23.4375" y="23.4375" width="22.875" height="22.875" rx="11.4375"
+                                        transform="rotate(-180 23.4375 23.4375)" fill="white" fill-opacity="0.16">
+                                    </rect>
+                                    <rect x="23.4375" y="23.4375" width="22.875" height="22.875" rx="11.4375"
+                                        transform="rotate(-180 23.4375 23.4375)" stroke="white" stroke-width="1.125">
+                                    </rect>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16.1655 8.38083C16.4119 8.10721 16.3898 7.68568 16.1162 7.43931C15.8426 7.19294 15.421 7.21503 15.1747 7.48865L11.9089 11.1157L8.82637 7.68148C8.58042 7.40748 8.15893 7.38473 7.88493 7.63068C7.61093 7.87662 7.58818 8.29812 7.83413 8.57211L11.0117 12.1121L8.03727 15.4155C7.7909 15.6891 7.81299 16.1107 8.08661 16.357C8.36023 16.6034 8.78176 16.5813 9.02813 16.3077L11.9073 13.11L14.9592 16.51C15.2052 16.784 15.6267 16.8068 15.9007 16.5608C16.1747 16.3149 16.1974 15.8934 15.9515 15.6194L12.8046 12.1135L16.1655 8.38083Z"
+                                        fill="white"></path>
+                                </svg></span> -->
+
+                            <!-- Paste your existing Download Assets section below this line -->
+                            <div class="popup-content-inner">
+                                <div class="project-details-download-assets-box">
+                                    <div class="project-details-download-assets">
+                                        <ul>
+                                            <li>
+                                                <svg width="35" fill="#fff" xmlns="http://www.w3.org/2000/svg"
+                                                    viewbox="0 0 512 512">
+                                                    <path
+                                                        d="M256 16c-26.5 0-48 21.5-48 48l0 384c0 26.5 21.5 48 48 48l192 0c26.5 0 48-21.5 48-48l0-384c0-26.5-21.5-48-48-48L256 16zM192 64c0-35.3 28.7-64 64-64L448 0c35.3 0 64 28.7 64 64l0 384c0 35.3-28.7 64-64 64l-192 0c-35.3 0-64-28.7-64-64l0-384zM56 128l104 0 0 16L56 144c-22.1 0-40 17.9-40 40l0 272c0 22.1 17.9 40 40 40l116.8 0c3.3 5.7 7.2 11.1 11.6 16L56 512c-30.9 0-56-25.1-56-56L0 184c0-30.9 25.1-56 56-56zm8 216c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32zm24-8c-4.4 0-8 3.6-8 8l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0zm0-144l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32c0-13.3 10.7-24 24-24zm-8 24l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8zM368 376l0-32c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24zm24 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8l0 32c0 4.4 3.6 8 8 8zm0-112c-13.3 0-24-10.7-24-24l0-32c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0zm-8-24c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8l0 32zM256 376l0-32c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24zm24 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8l0 32c0 4.4 3.6 8 8 8zm0-312l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32c0-13.3 10.7-24 24-24zm-8 24l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8zM256 248l0-32c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24zm24 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8l0 32c0 4.4 3.6 8 8 8zM392 72l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32c0-13.3 10.7-24 24-24zm-8 24l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8z">
+                                                    </path>
+                                                </svg>
+                                                <a
+                                                    data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-skyblade-assets/auralius-skyblade-digital-brochure.pdf">Brochure</a>
+                                            </li>
+                                            <li>
+                                                <svg width="40" fill="#fff" xmlns="http://www.w3.org/2000/svg"
+                                                    viewbox="0 0 640 512">
+                                                    <path
+                                                        d="M48 16l288 0c17.7 0 32 14.3 32 32l0 199.2c5-5.3 10.4-10.3 16-15L384 48c0-26.5-21.5-48-48-48L48 0C21.5 0 0 21.5 0 48L0 464c0 26.5 21.5 48 48 48l96 0 16 0 64 0 16 0 96 0c15.1 0 28.5-6.9 37.3-17.8c-3.9-3.8-7.6-7.7-11.1-11.8c-5.8 8.2-15.4 13.6-26.2 13.6l-96 0 0-80c0-26.5-21.5-48-48-48s-48 21.5-48 48l0 80-96 0c-17.7 0-32-14.3-32-32L16 48c0-17.7 14.3-32 32-32zM224 496l-64 0 0-80c0-17.7 14.3-32 32-32s32 14.3 32 32l0 80zM104 232c-13.3 0-24 10.7-24 24l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0zm-8 24c0-4.4 3.6-8 8-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32zm128 0l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0c-13.3 0-24 10.7-24 24zm24-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32c0-4.4 3.6-8 8-8zM104 104c-13.3 0-24 10.7-24 24l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0zm-8 24c0-4.4 3.6-8 8-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32zm128 0l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0c-13.3 0-24 10.7-24 24zm24-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32c0-4.4 3.6-8 8-8zM496 240a128 128 0 1 1 0 256 128 128 0 1 1 0-256zm0 272a144 144 0 1 0 0-288 144 144 0 1 0 0 288zm69.7-189.7c-3.1-3.1-8.2-3.1-11.3 0L480 396.7l-42.3-42.3c-3.1-3.1-8.2-3.1-11.3 0s-3.1 8.2 0 11.3l48 48c3.1 3.1 8.2 3.1 11.3 0l80-80c3.1-3.1 3.1-8.2 0-11.3z">
+                                                    </path>
+                                                </svg>
+                                                <a
+                                                    data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-skyblade-assets/auralius-skyblade-project-facts.pdf">Project
+                                                    Facts</a>
+                                            </li>
+                                            <li>
+                                                <svg width="25" fill="#fff" xmlns="http://www.w3.org/2000/svg"
+                                                    viewbox="0 0 384 512">
+                                                    <path
+                                                        d="M48 16C30.3 16 16 30.3 16 48l0 416c0 17.7 14.3 32 32 32l96 0 0-80c0-26.5 21.5-48 48-48s48 21.5 48 48l0 80 96 0c17.7 0 32-14.3 32-32l0-416c0-17.7-14.3-32-32-32L48 16zM160 496l64 0 0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80zm-16 16l-96 0c-26.5 0-48-21.5-48-48L0 48C0 21.5 21.5 0 48 0L336 0c26.5 0 48 21.5 48 48l0 416c0 26.5-21.5 48-48 48l-96 0-16 0-64 0-16 0zM104 232l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32c0-13.3 10.7-24 24-24zm-8 24l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8zm128 0c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32zm24-8c-4.4 0-8 3.6-8 8l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0zM104 104l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32c0-13.3 10.7-24 24-24zm-8 24l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0c-4.4 0-8 3.6-8 8zm128 0c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24l0 32c0 13.3-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24l0-32zm24-8c-4.4 0-8 3.6-8 8l0 32c0 4.4 3.6 8 8 8l32 0c4.4 0 8-3.6 8-8l0-32c0-4.4-3.6-8-8-8l-32 0z">
+                                                    </path>
+                                                </svg>
+                                                <a
+                                                    data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-skyblade-assets/auralius-skyblade-project-images.zip">Project
+                                                    Images</a>
+                                            </li>
+                                            <li>
+                                                <svg width="40" fill="#fff" xmlns="http://www.w3.org/2000/svg"
+                                                    viewbox="0 0 640 512">
+                                                    <path
+                                                        d="M48 16l288 0c17.7 0 32 14.3 32 32l0 133.4c5.2-3 10.5-5.7 16-8.1L384 48c0-26.5-21.5-48-48-48L48 0C21.5 0 0 21.5 0 48L0 464c0 26.5 21.5 48 48 48l96 0 16 0 64 0 16 0 96 0c25.6 0 46.6-20.1 47.9-45.3c-5.5-2.4-10.8-5.1-15.9-8.1l0 5.4c0 17.7-14.3 32-32 32l-96 0 0-80c0-26.5-21.5-48-48-48s-48 21.5-48 48l0 80-96 0c-17.7 0-32-14.3-32-32L16 48c0-17.7 14.3-32 32-32zM280 232l-32 0c-13.3 0-24 10.7-24 24l0 32c0 13.3 10.7 24 24 24l32 0c2.9 0 5.7-.5 8.3-1.5c1.2-21.2 6.6-41.2 15.2-59.4C301.3 240.2 291.6 232 280 232zM224 496l-64 0 0-80c0-17.7 14.3-32 32-32s32 14.3 32 32l0 80zM104 232c-13.3 0-24 10.7-24 24l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0zm-8 24c0-4.4 3.6-8 8-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32zm152-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32c0-4.4 3.6-8 8-8zM104 104c-13.3 0-24 10.7-24 24l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0zm-8 24c0-4.4 3.6-8 8-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32zm128 0l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0c-13.3 0-24 10.7-24 24zm24-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32c0-4.4 3.6-8 8-8zm200 88.1a112 112 0 1 1 0 224 112 112 0 1 1 0-224zm0 240c32.5 0 62.1-12.1 84.7-32l93.7 93.7c3.1 3.1 8.2 3.1 11.3 0s3.1-8.2 0-11.3L544 404.8c19.9-22.6 32-52.2 32-84.7c0-70.7-57.3-128-128-128s-128 57.3-128 128s57.3 128 128 128z">
+                                                    </path>
+                                                </svg>
+                                                <a
+                                                    data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-skyblade-assets/auralius-skyblade-floorplan.pdf">Floor
+                                                    Plans</a>
+                                            </li>
+                                            <li>
+                                                <svg width="40" fill="#fff" xmlns="http://www.w3.org/2000/svg"
+                                                    viewbox="0 0 640 512">
+                                                    <path
+                                                        d="M48 16l288 0c17.7 0 32 14.3 32 32l0 330.4c5-3.9 10.4-7.5 16-10.7l0-95.9L384 48c0-26.5-21.5-48-48-48L48 0C21.5 0 0 21.5 0 48L0 464c0 26.5 21.5 48 48 48l96 0 16 0 64 0 16 0 89.9 0c-3-4.9-5.5-10.3-7.2-16L240 496l0-80c0-26.5-21.5-48-48-48s-48 21.5-48 48l0 80-96 0c-17.7 0-32-14.3-32-32L16 48c0-17.7 14.3-32 32-32zM224 496l-64 0 0-80c0-17.7 14.3-32 32-32s32 14.3 32 32l0 80zM104 232c-13.3 0-24 10.7-24 24l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0zm-8 24c0-4.4 3.6-8 8-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32zm128 0l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0c-13.3 0-24 10.7-24 24zm24-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32c0-4.4 3.6-8 8-8zM104 104c-13.3 0-24 10.7-24 24l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0zm-8 24c0-4.4 3.6-8 8-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32zm128 0l0 32c0 13.3 10.7 24 24 24l32 0c13.3 0 24-10.7 24-24l0-32c0-13.3-10.7-24-24-24l-32 0c-13.3 0-24 10.7-24 24zm24-8l32 0c4.4 0 8 3.6 8 8l0 32c0 4.4-3.6 8-8 8l-32 0c-4.4 0-8-3.6-8-8l0-32c0-4.4 3.6-8 8-8zM432 272a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zM368 477.1c0-42.6 34.5-77.1 77.1-77.1l101.8 0c42.6 0 77.1 34.5 77.1 77.1c0 10.4-8.5 18.9-18.9 18.9l-218.2 0c-10.4 0-18.9-8.5-18.9-18.9zM496 352a80 80 0 1 0 0-160 80 80 0 1 0 0 160zm-50.9 32c-51.4 0-93.1 41.7-93.1 93.1c0 19.3 15.6 34.9 34.9 34.9l218.2 0c19.3 0 34.9-15.6 34.9-34.9c0-51.4-41.7-93.1-93.1-93.1l-101.8 0z">
+                                                    </path>
+                                                </svg>
+                                                <a
+                                                    data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-skyblade-assets/auralius-skyblade-project-location.pdf">Project
+                                                    Location</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a class="custom-btn"
+                                        data-assets-url="https://auralius-public.s3.me-central-1.amazonaws.com/project-assets/auralius-skyblade-assets/auralius-skyblade-all-assets.zip">DOWNLOAD
+                                        ALL ASSETS</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <div id="iframe-container" class="iframe-container"></div>
+
+
+    <!-- Available units section start -->
+    <section class="vh available-units">
+        <div class="container text-center">
+            <h2 class="heading">available <span>units</span></h2>
+            <div class="owl-carousel cards-container">
+                <div class="card-box">
+                    <div class="card">
+                        <img src="../assets/img/bedroom-img.webp" alt="card-img">
+                        <div class="card-contents">
+                            <h3>Studio</h3>
+                            <ul>
+                                <li>
+                                    <img src="../assets/img/Payment-icon.svg" alt="payment">
+                                    Starting 1,674,999 AED
+                                </li>
+                                <li>
+                                    <div class="d-flex justify-content-between align-items-center" style="width: 100%">
+                                        <img src="../assets/img/Square.svg" alt="square">
+                                        378 sqft
+                                        <div class="arrow">
+                                            <img src="../assets/img/arrow-small-left.svg" alt="arrow">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a href="//en/project-details?ProjectID=10064&ProjectName=auralius+SKYBLADE&UnitTypeID=1&UnitTypeName=Studio&StartingArea=378&StartingPrice=1674999&GoogleLocationURL=&Community=Burj+Khalifa+&ProjectCategory=Premium&HandoverDate=2027-11-29&UnitCount=67"
+                                class="custom-btn btn-border property-btn">Book now</a>
+                        </div>
+                    </div>
+                    <a href="//en/project-details?ProjectID=10064&ProjectName=auralius+SKYBLADE&UnitTypeID=1&UnitTypeName=Studio&StartingArea=378&StartingPrice=1674999&GoogleLocationURL=&Community=Burj+Khalifa+&ProjectCategory=Premium&HandoverDate=2027-11-29&UnitCount=67"
+                        class="custom-btn btn-border mobile-btn">Book now</a>
+                </div>
+                <div class="card-box">
+                    <div class="card">
+                        <img src="../assets/img/bedroom-img.webp" alt="card-img">
+                        <div class="card-contents">
+                            <h3>1 Bedroom</h3>
+                            <ul>
+                                <li>
+                                    <img src="../assets/img/Payment-icon.svg" alt="payment">
+                                    Starting 3,249,999 AED
+                                </li>
+                                <li>
+                                    <div class="d-flex justify-content-between align-items-center" style="width: 100%">
+                                        <img src="../assets/img/Square.svg" alt="square">
+                                        762 sqft
+                                        <div class="arrow">
+                                            <img src="../assets/img/arrow-small-left.svg" alt="arrow">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a href="//en/project-details?ProjectID=10064&ProjectName=auralius+SKYBLADE&UnitTypeID=2&UnitTypeName=One+Bedroom&StartingArea=762&StartingPrice=3249999&GoogleLocationURL=&Community=Burj+Khalifa+&ProjectCategory=Premium&HandoverDate=2027-11-29&UnitCount=38"
+                                class="custom-btn btn-border property-btn">Book now</a>
+                        </div>
+                    </div>
+                    <a href="//en/project-details?ProjectID=10064&ProjectName=auralius+SKYBLADE&UnitTypeID=2&UnitTypeName=One+Bedroom&StartingArea=762&StartingPrice=3249999&GoogleLocationURL=&Community=Burj+Khalifa+&ProjectCategory=Premium&HandoverDate=2027-11-29&UnitCount=38"
+                        class="custom-btn btn-border mobile-btn">Book now</a>
+                </div>
+                <div class="card-box">
+                    <div class="card">
+                        <img src="../assets/img/bedroom-img.webp" alt="card-img">
+                        <div class="card-contents">
+                            <h3>2 Bedroom</h3>
+                            <ul>
+                                <li>
+                                    <img src="../assets/img/Payment-icon.svg" alt="payment">
+                                    Starting 4,699,999 AED
+                                </li>
+                                <li>
+                                    <div class="d-flex justify-content-between align-items-center" style="width: 100%">
+                                        <img src="../assets/img/Square.svg" alt="square">
+                                        1250 sqft
+                                        <div class="arrow">
+                                            <img src="../assets/img/arrow-small-left.svg" alt="arrow">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a href="//en/project-details?ProjectID=10064&ProjectName=auralius+SKYBLADE&UnitTypeID=3&UnitTypeName=Two+Bedrooms&StartingArea=1250&StartingPrice=4699999&GoogleLocationURL=&Community=Burj+Khalifa+&ProjectCategory=Premium&HandoverDate=2027-11-29&UnitCount=27"
+                                class="custom-btn btn-border property-btn">Book now</a>
+                        </div>
+                    </div>
+                    <a href="//en/project-details?ProjectID=10064&ProjectName=auralius+SKYBLADE&UnitTypeID=3&UnitTypeName=Two+Bedrooms&StartingArea=1250&StartingPrice=4699999&GoogleLocationURL=&Community=Burj+Khalifa+&ProjectCategory=Premium&HandoverDate=2027-11-29&UnitCount=27"
+                        class="custom-btn btn-border mobile-btn">Book now</a>
+                </div>
+                <div class="card-box">
+                    <div class="card">
+                        <img src="../assets/img/bedroom-img.webp" alt="card-img">
+                        <div class="card-contents">
+                            <h3>3 Bedroom</h3>
+                            <ul>
+                                <li>
+                                    <img src="../assets/img/Payment-icon.svg" alt="payment">
+                                    Starting 12,999,999 AED
+                                </li>
+                                <li>
+                                    <div class="d-flex justify-content-between align-items-center" style="width: 100%">
+                                        <img src="../assets/img/Square.svg" alt="square">
+                                        2145 sqft
+                                        <div class="arrow">
+                                            <img src="../assets/img/arrow-small-left.svg" alt="arrow">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a href="//en/project-details?ProjectID=10064&ProjectName=auralius+SKYBLADE&UnitTypeID=4&UnitTypeName=Three+Bedrooms&StartingArea=2145&StartingPrice=12999999&GoogleLocationURL=&Community=Burj+Khalifa+&ProjectCategory=Premium&HandoverDate=2027-11-29&UnitCount=11"
+                                class="custom-btn btn-border property-btn">Book now</a>
+                        </div>
+                    </div>
+                    <a href="//en/project-details?ProjectID=10064&ProjectName=auralius+SKYBLADE&UnitTypeID=4&UnitTypeName=Three+Bedrooms&StartingArea=2145&StartingPrice=12999999&GoogleLocationURL=&Community=Burj+Khalifa+&ProjectCategory=Premium&HandoverDate=2027-11-29&UnitCount=11"
+                        class="custom-btn btn-border mobile-btn">Book now</a>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Available units section end -->
+
+    <!-- FAQs section code  -->
+    <div class="accordion container" id="faqAccordion">
+        <div class="category-faq-heading">
+            <h2><span>Frequently Asked</span> Questions</h2>
+        </div>
+        <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    What types of properties are available at auralius Skyblade?
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    auralius Skyblade offers a range of meticulously designed studios, 1, 2, and 3-bedroom apartments
+                    with a total of 619 residential units and 2 retail units.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    How many floors is auralius Skyblade?
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    auralius Skyblade consists of 4 basement levels, ground floor, 3 podium levels, 55 residential
+                    floors, 5 mechanical floors, and a roof.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    When is the completion date for auralius Skyblade?
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    auralius Skyblade's completion date is Q4 2027.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    What is the payment plan for auralius Skyblade?
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Skyblade follows auralius's standard payment plan, which is:
+                    <ul>
+                        <li>20% on signing the contract</li>
+                        <li>50% during construction</li>
+                        <li>30% on completion</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    What makes auralius Skyblade a good investment?
+                </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    auralius Skyblade represents innovation and craftsmanship with its iconic crown and instantly
+                    recognizable design. Besides its premium amenities, it has a strategic location in Downtown Dubai,
+                    and floor-to-ceiling windows that offer panoramic views of the Burj Khalifa. All of these factors
+                    present the project as a unique investment opportunity.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    Where is auralius Skyblade located?
+                </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    auralius Skyblade lies in a premium location in Downtown Dubai, offering panoramic views of the
+                    world’s tallest tower, Burj Khalifa, and is only:
+                    <ul>
+                        <li>3 minutes away from Burj Khalifa and Dubai Mall</li>
+                        <li>3 minutes away from Dubai Opera</li>
+                        <li>10 minutes away from Dubai International Financial Centre (DIFC)</li>
+                        <li>12 minutes away from the Museum of the Future</li>
+                        <li>15 minutes away from Burj Al Arab and Jumeirah Beach</li>
+                        <li>16 minutes away from Dubai International Airport</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <input type="hidden" id="recaptcha_token" name="recaptcha_token">
+
+
+    <div id="global-recaptcha" class="g-recaptcha" data-sitekey="6LcGEQgqAAAAAP_hHyvKi8kU6oxxyRLXg69BdrTz"
+        data-callback="onSubmit" data-size="invisible">
+    </div>
+
+    <footer class="main-footer" id="footer">
+        <img class="main-footer-bg" src="../assets/img/auralius-skyblade-footer.webp" alt="auralius Projects Photos">
+        <h3 class="footer-connect"> Connect with <br> <b>the brand</b> </h3>
+        <div class="footer-details">
+            <div class="footer-heading">
+                <h2> <b>Express</b> <br> Your <br> Interest </h2>
+            </div>
+            <div class="footer-links">
+                <a href="//en/contact-us">FIND A SALES BOUTIQUE
+                    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewbox="0 0 6 10" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4.56725 4.99146L0.35899 0.783225C0.179816 0.604051 0.179816 0.313554 0.35899 0.13438C0.538165 -0.0447934 0.828663 -0.0447934 1.00784 0.13438L5.40673 4.53325C5.53074 4.65726 5.56892 4.83461 5.52126 4.99146C5.56892 5.14831 5.53074 5.32566 5.40673 5.44967L1.00784 9.84854C0.828663 10.0277 0.538165 10.0277 0.35899 9.84854C0.179816 9.66936 0.179816 9.37886 0.35899 9.19969L4.56725 4.99146Z"
+                            fill="white" fill-opacity="0.7"></path>
+                    </svg>
+                </a><br>
+                <a href="//en/property-search"> DISCOVER THE COLLECTION
+                    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewbox="0 0 6 10" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4.56725 4.99146L0.35899 0.783225C0.179816 0.604051 0.179816 0.313554 0.35899 0.13438C0.538165 -0.0447934 0.828663 -0.0447934 1.00784 0.13438L5.40673 4.53325C5.53074 4.65726 5.56892 4.83461 5.52126 4.99146C5.56892 5.14831 5.53074 5.32566 5.40673 5.44967L1.00784 9.84854C0.828663 10.0277 0.538165 10.0277 0.35899 9.84854C0.179816 9.66936 0.179816 9.37886 0.35899 9.19969L4.56725 4.99146Z"
+                            fill="white" fill-opacity="0.7"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="footer-social-media">
+                <a href="https://www.instagram.com/auralius/" target="_blank" aria-label="Follow us on Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 448 512">
+                        <path fill="white"
+                            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/auralius/" target="_blank" aria-label="Follow us on Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 320 512">
+                        <path fill="white"
+                            d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/c/auraliusDevelopersDubai/" target="_blank"
+                    aria-label="Subscribe to our YouTube channel">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 576 512">
+                        <path fill="white"
+                            d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/company/auralius/" target="_blank"
+                    aria-label="Connect with us on LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 448 512">
+                        <path fill="white"
+                            d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="https://www.snapchat.com/add/auralius" target="_blank" aria-label="Follow us on Snapchat">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="white">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path
+                            d="M12 1.96a5.88 5.88 0 0 1 5.882 5.882c0 .618 .008 1.174 .03 1.678l.008 .21l.084 -.115q .46 -.627 1.102 -1.29l.187 -.19a1 1 0 0 1 1.414 1.415c-2.637 2.637 -2.51 3.795 .76 5.527l.048 .025a.98.98 0 0 1 .46 .636l.004 .022l.003 .013l.006 .043l.006 .032v.009l.003 .025l.001 .051l.002 .026l-.001 .009v.025l-.003 .042l-.002 .034l-.002 .015l-.002 .02l-.004 .016l-.01 .06l-.007 .026l-.006 .02l-.016 .06l-.013 .029l-.005 .013l-.024 .062a1 1 0 0 1 -.197 .28l-.03 .025l-.016 .014l-.043 .039l-.013 .007l-.018 .015l-.051 .033l-.02 .014l-.008 .003l-.014 .01a1 1 0 0 1 -.098 .049l-.013 .003l-.146 .066c-.576 .255 -.81 .365 -1.008 .474l-.053 .03c-.27 .155 -.398 .277 -.558 .525c-.156 .245 -.293 .516 -.715 1.41a1 1 0 0 1 -.904 .573c-1.067 0 -1.798 .25 -2.879 .868l-.426 .246c-.176 .102 -.311 .178 -.447 .25c-.794 .423 -1.464 .636 -2.248 .636s-1.454 -.213 -2.248 -.636a15 15 0 0 1 -.447 -.25l-.426 -.246c-1.081 -.618 -1.812 -.868 -2.879 -.868a1 1 0 0 1 -.904 -.573c-.422 -.894 -.559 -1.165 -.715 -1.41a1.4 1.4 0 0 0 -.558 -.525c-.228 -.13 -.47 -.243 -1.227 -.577l.02 .007l-.013 -.003a1 1 0 0 1 -.098 -.05l-.014 -.009l-.028 -.017l-.051 -.033l-.018 -.015l-.013 -.007l-.043 -.039l-.012 -.01l-.004 -.004l-.03 -.025a1 1 0 0 1 -.197 -.28l-.024 -.062l-.005 -.013l-.013 -.028l-.016 -.061l-.005 -.012l-.008 -.035l-.01 -.059l-.004 -.016l-.002 -.02l-.002 -.015l-.002 -.035l-.004 -.041l.001 -.025l-.001 -.01l.002 -.025l.001 -.05l.003 -.026v-.01l.006 -.03l.006 -.044l.004 -.014l.002 -.021a.98 .98 0 0 1 .461 -.636l.048 -.025l.204 -.11c3.003 -1.635 3.132 -2.785 .72 -5.25l-.164 -.167a1 1 0 0 1 1.414 -1.414q .764 .763 1.289 1.479l.083 .115l.01 -.21q .025 -.628 .028 -1.374l.001 -.304a5.88 5.88 0 0 1 5.882 -5.882">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-form">
+            <div>
+                <div class="footer-heading mobile">
+                    <h2>Express<br><b>Your Interest</b></h2>
+                </div>
+                <div>
+                    <div class="footer-form-input form-input">
+                        <input type="text" placeholder="NAME" class="lead_name" autocomplete="off" maxlength="31"
+                            minlength="3">
+                    </div>
+                    <div class="footer-form-input form-input with-country-code  lead_with_country_code">
+                        <label for="country_code" class="visually-hidden">Country Code</label>
+                        <select id="country_code" name="country_code" class="lead_country_code">
+                            <option selected="" value="971">UAE (+971)</option>
+                            <option value="213">Algeria (+213)</option>
+                            <option value="376">Andorra (+376)</option>
+                            <option value="244">Angola (+244)</option>
+                            <option value="1264">Anguilla (+1264)</option>
+                            <option value="1268">Antigua (+1268)</option>
+                            <option value="54">Argentina (+54)</option>
+                            <option value="374">Armenia (+374)</option>
+                            <option value="297">Aruba (+297)</option>
+                            <option value="61">Australia (+61)</option>
+                            <option value="43">Austria (+43)</option>
+                            <option value="994">Azerbaijan (+994)</option>
+                            <option value="1242">Bahamas (+1242)</option>
+                            <option value="973">Bahrain (+973)</option>
+                            <option value="880">Bangladesh (+880)</option>
+                            <option value="1246">Barbados (+1246)</option>
+                            <option value="375">Belarus (+375)</option>
+                            <option value="32">Belgium (+32)</option>
+                            <option value="501">Belize (+501)</option>
+                            <option value="229">Benin (+229)</option>
+                            <option value="1441">Bermuda (+1441)</option>
+                            <option value="975">Bhutan (+975)</option>
+                            <option value="591">Bolivia (+591)</option>
+                            <option value="387">Bosnia (+387)</option>
+                            <option value="267">Botswana (+267)</option>
+                            <option value="55">Brazil (+55)</option>
+                            <option value="673">Brunei (+673)</option>
+                            <option value="359">Bulgaria (+359)</option>
+                            <option value="226">Burkina Faso (+226)</option>
+                            <option value="257">Burundi (+257)</option>
+                            <option value="855">Cambodia (+855)</option>
+                            <option value="237">Cameroon (+237)</option>
+                            <option value="1">Canada (+1)</option>
+                            <option value="238">Cape Verde (+238)</option>
+                            <option value="1345">Cayman Islands (+1345)</option>
+                            <option value="236">Central Africa (+236)</option>
+                            <option value="56">Chile (+56)</option>
+                            <option value="86">China (+86)</option>
+                            <option value="57">Colombia (+57)</option>
+                            <option value="269">Comoros (+269)</option>
+                            <option value="242">Congo (+242)</option>
+                            <option value="682">Cook Islands (+682)</option>
+                            <option value="506">Costa Rica (+506)</option>
+                            <option value="385">Croatia (+385)</option>
+                            <option value="53">Cuba (+53)</option>
+                            <option value="90392">N. Cyprus (+90392)</option>
+                            <option value="357">S. Cyprus (+357)</option>
+                            <option value="42">Czechia (+42)</option>
+                            <option value="45">Denmark (+45)</option>
+                            <option value="253">Djibouti (+253)</option>
+                            <option value="1809">Dominica (+1809)</option>
+                            <option value="1809">Dom. Republic (+1809)</option>
+                            <option value="593">Ecuador (+593)</option>
+                            <option value="20">Egypt (+20)</option>
+                            <option value="503">El Salvador (+503)</option>
+                            <option value="240">Eq. Guinea (+240)</option>
+                            <option value="291">Eritrea (+291)</option>
+                            <option value="372">Estonia (+372)</option>
+                            <option value="251">Ethiopia (+251)</option>
+                            <option value="500">Falklands (+500)</option>
+                            <option value="298">Faroe Islands (+298)</option>
+                            <option value="679">Fiji (+679)</option>
+                            <option value="358">Finland (+358)</option>
+                            <option value="33">France (+33)</option>
+                            <option value="594">Fr. Guiana (+594)</option>
+                            <option value="689">Fr. Polynesia (+689)</option>
+                            <option value="241">Gabon (+241)</option>
+                            <option value="220">Gambia (+220)</option>
+                            <option value="7880">Georgia (+7880)</option>
+                            <option value="49">Germany (+49)</option>
+                            <option value="233">Ghana (+233)</option>
+                            <option value="350">Gibraltar (+350)</option>
+                            <option value="30">Greece (+30)</option>
+                            <option value="299">Greenland (+299)</option>
+                            <option value="1473">Grenada (+1473)</option>
+                            <option value="590">Guadeloupe (+590)</option>
+                            <option value="671">Guam (+671)</option>
+                            <option value="502">Guatemala (+502)</option>
+                            <option value="224">Guinea (+224)</option>
+                            <option value="245">Bissau (+245)</option>
+                            <option value="592">Guyana (+592)</option>
+                            <option value="509">Haiti (+509)</option>
+                            <option value="504">Honduras (+504)</option>
+                            <option value="852">HongKong (+852)</option>
+                            <option value="36">Hungary (+36)</option>
+                            <option value="354">Iceland (+354)</option>
+                            <option value="91">India (+91)</option>
+                            <option value="62">Indonesia (+62)</option>
+                            <option value="98">Iran (+98)</option>
+                            <option value="964">Iraq (+964)</option>
+                            <option value="353">Ireland (+353)</option>
+                            <option value="972">Israel (+972)</option>
+                            <option value="39">Italy (+39)</option>
+                            <option value="1876">Jamaica (+1876)</option>
+                            <option value="81">Japan (+81)</option>
+                            <option value="962">Jordan (+962)</option>
+                            <option value="7">Kazakhstan (+7)</option>
+                            <option value="254">Kenya (+254)</option>
+                            <option value="686">Kiribati (+686)</option>
+                            <option value="850">N. Korea (+850)</option>
+                            <option value="82">S. Korea (+82)</option>
+                            <option value="965">Kuwait (+965)</option>
+                            <option value="996">Kyrgyzstan (+996)</option>
+                            <option value="856">Laos (+856)</option>
+                            <option value="371">Latvia (+371)</option>
+                            <option value="961">Lebanon (+961)</option>
+                            <option value="266">Lesotho (+266)</option>
+                            <option value="231">Liberia (+231)</option>
+                            <option value="218">Libya (+218)</option>
+                            <option value="417">Liechtenstein (+417)</option>
+                            <option value="370">Lithuania (+370)</option>
+                            <option value="352">Luxembourg (+352)</option>
+                            <option value="853">Macao (+853)</option>
+                            <option value="389">Macedonia (+389)</option>
+                            <option value="261">Madagascar (+261)</option>
+                            <option value="265">Malawi (+265)</option>
+                            <option value="60">Malaysia (+60)</option>
+                            <option value="960">Maldives (+960)</option>
+                            <option value="223">Mali (+223)</option>
+                            <option value="356">Malta (+356)</option>
+                            <option value="692">Marshall (+692)</option>
+                            <option value="596">Martinique (+596)</option>
+                            <option value="222">Mauritania (+222)</option>
+                            <option value="269">Mayotte (+269)</option>
+                            <option value="52">Mexico (+52)</option>
+                            <option value="691">Micronesia (+691)</option>
+                            <option value="373">Moldova (+373)</option>
+                            <option value="377">Monaco (+377)</option>
+                            <option value="976">Mongolia (+976)</option>
+                            <option value="1664">Montserrat (+1664)</option>
+                            <option value="212">Morocco (+212)</option>
+                            <option value="258">Mozambique (+258)</option>
+                            <option value="95">Myanmar (+95)</option>
+                            <option value="264">Namibia (+264)</option>
+                            <option value="674">Nauru (+674)</option>
+                            <option value="977">Nepal (+977)</option>
+                            <option value="31">Netherlands (+31)</option>
+                            <option value="687">Caledonia (+687)</option>
+                            <option value="64">NZ (+64)</option>
+                            <option value="505">Nicaragua (+505)</option>
+                            <option value="227">Niger (+227)</option>
+                            <option value="234">Nigeria (+234)</option>
+                            <option value="683">Niue (+683)</option>
+                            <option value="672">Norfolk (+672)</option>
+                            <option value="670">Marianas (+670)</option>
+                            <option value="47">Norway (+47)</option>
+                            <option value="968">Oman (+968)</option>
+                            <option value="680">Palau (+680)</option>
+                            <option value="507">Panama (+507)</option>
+                            <option value="675">Papua (+675)</option>
+                            <option value="595">Paraguay (+595)</option>
+                            <option value="51">Peru (+51)</option>
+                            <option value="63">Philippines (+63)</option>
+                            <option value="48">Poland (+48)</option>
+                            <option value="351">Portugal (+351)</option>
+                            <option value="1787">PuertoRico (+1787)</option>
+                            <option value="974">Qatar (+974)</option>
+                            <option value="262">Reunion (+262)</option>
+                            <option value="40">Romania (+40)</option>
+                            <option value="7">Russia (+7)</option>
+                            <option value="250">Rwanda (+250)</option>
+                            <option value="378">SanMarino (+378)</option>
+                            <option value="239">SaoTome (+239)</option>
+                            <option value="966">Saudi (+966)</option>
+                            <option value="221">Senegal (+221)</option>
+                            <option value="381">Serbia (+381)</option>
+                            <option value="248">Seychelles (+248)</option>
+                            <option value="232">Sierra (+232)</option>
+                            <option value="65">Singapore (+65)</option>
+                            <option value="421">Slovakia (+421)</option>
+                            <option value="386">Slovenia (+386)</option>
+                            <option value="677">Solomon (+677)</option>
+                            <option value="252">Somalia (+252)</option>
+                            <option value="27">S. Africa (+27)</option>
+                            <option value="34">Spain (+34)</option>
+                            <option value="94">SriLanka (+94)</option>
+                            <option value="290">StHelena (+290)</option>
+                            <option value="1869">StKitts (+1869)</option>
+                            <option value="1758">StLucia (+1758)</option>
+                            <option value="249">Sudan (+249)</option>
+                            <option value="597">Suriname (+597)</option>
+                            <option value="268">Swaziland (+268)</option>
+                            <option value="46">Sweden (+46)</option>
+                            <option value="41">Switzerland (+41)</option>
+                            <option value="963">Syria (+963)</option>
+                            <option value="886">Taiwan (+886)</option>
+                            <option value="7">Tajikistan (+7)</option>
+                            <option value="66">Thailand (+66)</option>
+                            <option value="228">Togo (+228)</option>
+                            <option value="676">Tonga (+676)</option>
+                            <option value="1868">Trinidad (+1868)</option>
+                            <option value="216">Tunisia (+216)</option>
+                            <option value="90">Turkey (+90)</option>
+                            <option value="993">Turkmenistan (+993)</option>
+                            <option value="1649">Turks (+1649)</option>
+                            <option value="688">Tuvalu (+688)</option>
+                            <option value="256">Uganda (+256)</option>
+                            <option value="44">UK (+44)</option>
+                            <option value="380">Ukraine (+380)</option>
+                            <option value="598">Uruguay (+598)</option>
+                            <option value="1">USA (+1)</option>
+                            <option value="7">Uzbekistan (+7)</option>
+                            <option value="678">Vanuatu (+678)</option>
+                            <option value="379">Vatican (+379)</option>
+                            <option value="58">Venezuela (+58)</option>
+                            <option value="84">Vietnam (+84)</option>
+                            <option value="1284">VI-British (+1284)</option>
+                            <option value="1340">VI-US (+1340)</option>
+                            <option value="681">Wallis (+681)</option>
+                            <option value="969">YemenN (+969)</option>
+                            <option value="967">YemenS (+967)</option>
+                            <option value="260">Zambia (+260)</option>
+                            <option value="263">Zimbabwe (+263)</option>
+                        </select>
+                        <input type="number" placeholder="MOBILE" class="lead_mobile" maxlength="15" minlength="6">
+                    </div>
+                    <div class="footer-form-input form-input">
+                        <input type="email" placeholder="EMAIL" class="lead_email" maxlength="30" minlength="3">
+                    </div>
+                    <div class="form-checkbox-box">
+                        <div class="form-checkbox lead_conditions_box">
+                            <!-- <input type="checkbox" id="footer-terms-and-conditions" class="lead_conditions"> -->
+                            <label for="footer-terms-and-conditions"> By submitting, you agree to our <span
+                                    class="open-terms-and-conditions">terms & conditions*</span></label>
+                        </div>
+                        <!-- <div class="form-checkbox">
+            <input type="checkbox" id="footer-communications" class="lead_other_communications">
+            <label for="footer-communications"> I agree to receive exclusive updates & other communications</label>
+          </div> -->
+                    </div>
+                    <button class="custom-btn lead_submit recaptcha-trigger" aria-label="Meet Our Brand Ambassador">MEET
+                        OUR BRAND AMBASSADOR</button>
+                </div>
+                <div class="footer-links mobile">
+                    <a href="//en/contact-us">FIND A SALES BOUTIQUE
+                        <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewbox="0 0 6 10" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M4.56725 4.99146L0.35899 0.783225C0.179816 0.604051 0.179816 0.313554 0.35899 0.13438C0.538165 -0.0447934 0.828663 -0.0447934 1.00784 0.13438L5.40673 4.53325C5.53074 4.65726 5.56892 4.83461 5.52126 4.99146C5.56892 5.14831 5.53074 5.32566 5.40673 5.44967L1.00784 9.84854C0.828663 10.0277 0.538165 10.0277 0.35899 9.84854C0.179816 9.66936 0.179816 9.37886 0.35899 9.19969L4.56725 4.99146Z"
+                                fill="white" fill-opacity="0.7"></path>
+                        </svg>
+                    </a><br>
+                    <a href="//en/property-search?project-type=premium"> DISCOVER THE COLLECTION
+                        <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewbox="0 0 6 10" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M4.56725 4.99146L0.35899 0.783225C0.179816 0.604051 0.179816 0.313554 0.35899 0.13438C0.538165 -0.0447934 0.828663 -0.0447934 1.00784 0.13438L5.40673 4.53325C5.53074 4.65726 5.56892 4.83461 5.52126 4.99146C5.56892 5.14831 5.53074 5.32566 5.40673 5.44967L1.00784 9.84854C0.828663 10.0277 0.538165 10.0277 0.35899 9.84854C0.179816 9.66936 0.179816 9.37886 0.35899 9.19969L4.56725 4.99146Z"
+                                fill="white" fill-opacity="0.7"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer-social-media mobile display-flex">
+                    <a href="https://www.instagram.com/auralius/" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 448 512">
+                            <path fill="white"
+                                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/auralius/" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 320 512">
+                            <path fill="white"
+                                d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/c/auraliusDevelopersDubai/" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 576 512">
+                            <path fill="white"
+                                d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/auralius/" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 448 512">
+                            <path fill="white"
+                                d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="https://www.snapchat.com/add/auralius" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 24 24" fill="white">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 1.96a5.88 5.88 0 0 1 5.882 5.882c0 .618 .008 1.174 .03 1.678l.008 .21l.084 -.115q .46 -.627 1.102 -1.29l.187 -.19a1 1 0 0 1 1.414 1.415c-2.637 2.637 -2.51 3.795 .76 5.527l.048 .025a.98.98 0 0 1 .46 .636l.004 .022l.003 .013l.006 .043l.006 .032v.009l.003 .025l.001 .051l.002 .026l-.001 .009v.025l-.003 .042l-.002 .034l-.002 .015l-.002 .02l-.004 .016l-.01 .06l-.007 .026l-.006 .02l-.016 .06l-.013 .029l-.005 .013l-.024 .062a1 1 0 0 1 -.197 .28l-.03 .025l-.016 .014l-.043 .039l-.013 .007l-.018 .015l-.051 .033l-.02 .014l-.008 .003l-.014 .01a1 1 0 0 1 -.098 .049l-.013 .003l-.146 .066c-.576 .255 -.81 .365 -1.008 .474l-.053 .03c-.27 .155 -.398 .277 -.558 .525c-.156 .245 -.293 .516 -.715 1.41a1 1 0 0 1 -.904 .573c-1.067 0 -1.798 .25 -2.879 .868l-.426 .246c-.176 .102 -.311 .178 -.447 .25c-.794 .423 -1.464 .636 -2.248 .636s-1.454 -.213 -2.248 -.636a15 15 0 0 1 -.447 -.25l-.426 -.246c-1.081 -.618 -1.812 -.868 -2.879 -.868a1 1 0 0 1 -.904 -.573c-.422 -.894 -.559 -1.165 -.715 -1.41a1.4 1.4 0 0 0 -.558 -.525c-.228 -.13 -.47 -.243 -1.227 -.577l.02 .007l-.013 -.003a1 1 0 0 1 -.098 -.05l-.014 -.009l-.028 -.017l-.051 -.033l-.018 -.015l-.013 -.007l-.043 -.039l-.012 -.01l-.004 -.004l-.03 -.025a1 1 0 0 1 -.197 -.28l-.024 -.062l-.005 -.013l-.013 -.028l-.016 -.061l-.005 -.012l-.008 -.035l-.01 -.059l-.004 -.016l-.002 -.02l-.002 -.015l-.002 -.035l-.004 -.041l.001 -.025l-.001 -.01l.002 -.025l.001 -.05l.003 -.026v-.01l.006 -.03l.006 -.044l.004 -.014l.002 -.021a.98 .98 0 0 1 .461 -.636l.048 -.025l.204 -.11c3.003 -1.635 3.132 -2.785 .72 -5.25l-.164 -.167a1 1 0 0 1 1.414 -1.414q .764 .763 1.289 1.479l.083 .115l.01 -.21q .025 -.628 .028 -1.374l.001 -.304a5.88 5.88 0 0 1 5.882 -5.882">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="footer-bottom">
+        <p>©2025 auralius. All rights reserved</p>
+    </div>
+
+    <div class="lead-popup-message" style="display: none">
+        <div class="lead-popup-content">
+            <span class="lead-popup-close">&times;</span>
+            <p>Thank you for your Interest. <br> Our Sales representative will be in touch shortly </p>
+            <a class="custom-btn" href="//en/property-search" target="_blank">Discover the
+                Collection</a>
+        </div>
+    </div>
+
+
+    <div class="main-popup video-call">
+        <!-- <div class="xmark">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <rect x="23.4375" y="23.4375" width="22.875" height="22.875" rx="11.4375" transform="rotate(-180 23.4375 23.4375)" fill="white" fill-opacity="0.16" /> <rect x="23.4375" y="23.4375" width="22.875" height="22.875" rx="11.4375" transform="rotate(-180 23.4375 23.4375)" stroke="white" stroke-width="1.125" /> <path fill-rule="evenodd" clip-rule="evenodd" d="M16.1655 8.38083C16.4119 8.10721 16.3898 7.68568 16.1162 7.43931C15.8426 7.19294 15.421 7.21503 15.1747 7.48865L11.9089 11.1157L8.82637 7.68148C8.58042 7.40748 8.15893 7.38473 7.88493 7.63068C7.61093 7.87662 7.58818 8.29812 7.83413 8.57211L11.0117 12.1121L8.03727 15.4155C7.7909 15.6891 7.81299 16.1107 8.08661 16.357C8.36023 16.6034 8.78176 16.5813 9.02813 16.3077L11.9073 13.11L14.9592 16.51C15.2052 16.784 15.6267 16.8068 15.9007 16.5608C16.1747 16.3149 16.1974 15.8934 15.9515 15.6194L12.8046 12.1135L16.1655 8.38083Z" fill="white" />
+    </svg>
+  </div> -->
+        <div class="main-popup-box">
+            <div class="xmark-box">
+                <div class="xmark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+                        <rect x="23.4375" y="23.4375" width="22.875" height="22.875" rx="11.4375"
+                            transform="rotate(-180 23.4375 23.4375)" fill="white" fill-opacity="0.16"></rect>
+                        <rect x="23.4375" y="23.4375" width="22.875" height="22.875" rx="11.4375"
+                            transform="rotate(-180 23.4375 23.4375)" stroke="white" stroke-width="1.125"></rect>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.1655 8.38083C16.4119 8.10721 16.3898 7.68568 16.1162 7.43931C15.8426 7.19294 15.421 7.21503 15.1747 7.48865L11.9089 11.1157L8.82637 7.68148C8.58042 7.40748 8.15893 7.38473 7.88493 7.63068C7.61093 7.87662 7.58818 8.29812 7.83413 8.57211L11.0117 12.1121L8.03727 15.4155C7.7909 15.6891 7.81299 16.1107 8.08661 16.357C8.36023 16.6034 8.78176 16.5813 9.02813 16.3077L11.9073 13.11L14.9592 16.51C15.2052 16.784 15.6267 16.8068 15.9007 16.5608C16.1747 16.3149 16.1974 15.8934 15.9515 15.6194L12.8046 12.1135L16.1655 8.38083Z"
+                            fill="white"></path>
+                    </svg>
+                </div>
+            </div>
+            <h2>MEET OUR <b>BRAND AMBASSADOR</b></h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="appointment-form">
+                            <div class="footer-form-input form-input">
+                                <input type="text" placeholder="NAME" class="bvcm_lead_two_name" autocomplete="off">
+                            </div>
+                            <div class="footer-form-input form-input with-country-code bvcm_with_country">
+                                <select name="country_code" class="bvcm_lead_two_country_code">
+                                    <option selected="" value="971">UAE (+971)</option>
+                                    <option value="213">Algeria (+213)</option>
+                                    <option value="376">Andorra (+376)</option>
+                                    <option value="244">Angola (+244)</option>
+                                    <option value="1264">Anguilla (+1264)</option>
+                                    <option value="1268">Antigua (+1268)</option>
+                                    <option value="54">Argentina (+54)</option>
+                                    <option value="374">Armenia (+374)</option>
+                                    <option value="297">Aruba (+297)</option>
+                                    <option value="61">Australia (+61)</option>
+                                    <option value="43">Austria (+43)</option>
+                                    <option value="994">Azerbaijan (+994)</option>
+                                    <option value="1242">Bahamas (+1242)</option>
+                                    <option value="973">Bahrain (+973)</option>
+                                    <option value="880">Bangladesh (+880)</option>
+                                    <option value="1246">Barbados (+1246)</option>
+                                    <option value="375">Belarus (+375)</option>
+                                    <option value="32">Belgium (+32)</option>
+                                    <option value="501">Belize (+501)</option>
+                                    <option value="229">Benin (+229)</option>
+                                    <option value="1441">Bermuda (+1441)</option>
+                                    <option value="975">Bhutan (+975)</option>
+                                    <option value="591">Bolivia (+591)</option>
+                                    <option value="387">Bosnia (+387)</option>
+                                    <option value="267">Botswana (+267)</option>
+                                    <option value="55">Brazil (+55)</option>
+                                    <option value="673">Brunei (+673)</option>
+                                    <option value="359">Bulgaria (+359)</option>
+                                    <option value="226">Burkina Faso (+226)</option>
+                                    <option value="257">Burundi (+257)</option>
+                                    <option value="855">Cambodia (+855)</option>
+                                    <option value="237">Cameroon (+237)</option>
+                                    <option value="1">Canada (+1)</option>
+                                    <option value="238">Cape Verde (+238)</option>
+                                    <option value="1345">Cayman Islands (+1345)</option>
+                                    <option value="236">Central Africa (+236)</option>
+                                    <option value="56">Chile (+56)</option>
+                                    <option value="86">China (+86)</option>
+                                    <option value="57">Colombia (+57)</option>
+                                    <option value="269">Comoros (+269)</option>
+                                    <option value="242">Congo (+242)</option>
+                                    <option value="682">Cook Islands (+682)</option>
+                                    <option value="506">Costa Rica (+506)</option>
+                                    <option value="385">Croatia (+385)</option>
+                                    <option value="53">Cuba (+53)</option>
+                                    <option value="90392">N. Cyprus (+90392)</option>
+                                    <option value="357">S. Cyprus (+357)</option>
+                                    <option value="42">Czechia (+42)</option>
+                                    <option value="45">Denmark (+45)</option>
+                                    <option value="253">Djibouti (+253)</option>
+                                    <option value="1809">Dominica (+1809)</option>
+                                    <option value="1809">Dom. Republic (+1809)</option>
+                                    <option value="593">Ecuador (+593)</option>
+                                    <option value="20">Egypt (+20)</option>
+                                    <option value="503">El Salvador (+503)</option>
+                                    <option value="240">Eq. Guinea (+240)</option>
+                                    <option value="291">Eritrea (+291)</option>
+                                    <option value="372">Estonia (+372)</option>
+                                    <option value="251">Ethiopia (+251)</option>
+                                    <option value="500">Falklands (+500)</option>
+                                    <option value="298">Faroe Islands (+298)</option>
+                                    <option value="679">Fiji (+679)</option>
+                                    <option value="358">Finland (+358)</option>
+                                    <option value="33">France (+33)</option>
+                                    <option value="594">Fr. Guiana (+594)</option>
+                                    <option value="689">Fr. Polynesia (+689)</option>
+                                    <option value="241">Gabon (+241)</option>
+                                    <option value="220">Gambia (+220)</option>
+                                    <option value="7880">Georgia (+7880)</option>
+                                    <option value="49">Germany (+49)</option>
+                                    <option value="233">Ghana (+233)</option>
+                                    <option value="350">Gibraltar (+350)</option>
+                                    <option value="30">Greece (+30)</option>
+                                    <option value="299">Greenland (+299)</option>
+                                    <option value="1473">Grenada (+1473)</option>
+                                    <option value="590">Guadeloupe (+590)</option>
+                                    <option value="671">Guam (+671)</option>
+                                    <option value="502">Guatemala (+502)</option>
+                                    <option value="224">Guinea (+224)</option>
+                                    <option value="245">Bissau (+245)</option>
+                                    <option value="592">Guyana (+592)</option>
+                                    <option value="509">Haiti (+509)</option>
+                                    <option value="504">Honduras (+504)</option>
+                                    <option value="852">HongKong (+852)</option>
+                                    <option value="36">Hungary (+36)</option>
+                                    <option value="354">Iceland (+354)</option>
+                                    <option value="91">India (+91)</option>
+                                    <option value="62">Indonesia (+62)</option>
+                                    <option value="98">Iran (+98)</option>
+                                    <option value="964">Iraq (+964)</option>
+                                    <option value="353">Ireland (+353)</option>
+                                    <option value="972">Israel (+972)</option>
+                                    <option value="39">Italy (+39)</option>
+                                    <option value="1876">Jamaica (+1876)</option>
+                                    <option value="81">Japan (+81)</option>
+                                    <option value="962">Jordan (+962)</option>
+                                    <option value="7">Kazakhstan (+7)</option>
+                                    <option value="254">Kenya (+254)</option>
+                                    <option value="686">Kiribati (+686)</option>
+                                    <option value="850">N. Korea (+850)</option>
+                                    <option value="82">S. Korea (+82)</option>
+                                    <option value="965">Kuwait (+965)</option>
+                                    <option value="996">Kyrgyzstan (+996)</option>
+                                    <option value="856">Laos (+856)</option>
+                                    <option value="371">Latvia (+371)</option>
+                                    <option value="961">Lebanon (+961)</option>
+                                    <option value="266">Lesotho (+266)</option>
+                                    <option value="231">Liberia (+231)</option>
+                                    <option value="218">Libya (+218)</option>
+                                    <option value="417">Liechtenstein (+417)</option>
+                                    <option value="370">Lithuania (+370)</option>
+                                    <option value="352">Luxembourg (+352)</option>
+                                    <option value="853">Macao (+853)</option>
+                                    <option value="389">Macedonia (+389)</option>
+                                    <option value="261">Madagascar (+261)</option>
+                                    <option value="265">Malawi (+265)</option>
+                                    <option value="60">Malaysia (+60)</option>
+                                    <option value="960">Maldives (+960)</option>
+                                    <option value="223">Mali (+223)</option>
+                                    <option value="356">Malta (+356)</option>
+                                    <option value="692">Marshall (+692)</option>
+                                    <option value="596">Martinique (+596)</option>
+                                    <option value="222">Mauritania (+222)</option>
+                                    <option value="269">Mayotte (+269)</option>
+                                    <option value="52">Mexico (+52)</option>
+                                    <option value="691">Micronesia (+691)</option>
+                                    <option value="373">Moldova (+373)</option>
+                                    <option value="377">Monaco (+377)</option>
+                                    <option value="976">Mongolia (+976)</option>
+                                    <option value="1664">Montserrat (+1664)</option>
+                                    <option value="212">Morocco (+212)</option>
+                                    <option value="258">Mozambique (+258)</option>
+                                    <option value="95">Myanmar (+95)</option>
+                                    <option value="264">Namibia (+264)</option>
+                                    <option value="674">Nauru (+674)</option>
+                                    <option value="977">Nepal (+977)</option>
+                                    <option value="31">Netherlands (+31)</option>
+                                    <option value="687">Caledonia (+687)</option>
+                                    <option value="64">NZ (+64)</option>
+                                    <option value="505">Nicaragua (+505)</option>
+                                    <option value="227">Niger (+227)</option>
+                                    <option value="234">Nigeria (+234)</option>
+                                    <option value="683">Niue (+683)</option>
+                                    <option value="672">Norfolk (+672)</option>
+                                    <option value="670">Marianas (+670)</option>
+                                    <option value="47">Norway (+47)</option>
+                                    <option value="968">Oman (+968)</option>
+                                    <option value="680">Palau (+680)</option>
+                                    <option value="507">Panama (+507)</option>
+                                    <option value="675">Papua (+675)</option>
+                                    <option value="595">Paraguay (+595)</option>
+                                    <option value="51">Peru (+51)</option>
+                                    <option value="63">Philippines (+63)</option>
+                                    <option value="48">Poland (+48)</option>
+                                    <option value="351">Portugal (+351)</option>
+                                    <option value="1787">PuertoRico (+1787)</option>
+                                    <option value="974">Qatar (+974)</option>
+                                    <option value="262">Reunion (+262)</option>
+                                    <option value="40">Romania (+40)</option>
+                                    <option value="7">Russia (+7)</option>
+                                    <option value="250">Rwanda (+250)</option>
+                                    <option value="378">SanMarino (+378)</option>
+                                    <option value="239">SaoTome (+239)</option>
+                                    <option value="966">Saudi (+966)</option>
+                                    <option value="221">Senegal (+221)</option>
+                                    <option value="381">Serbia (+381)</option>
+                                    <option value="248">Seychelles (+248)</option>
+                                    <option value="232">Sierra (+232)</option>
+                                    <option value="65">Singapore (+65)</option>
+                                    <option value="421">Slovakia (+421)</option>
+                                    <option value="386">Slovenia (+386)</option>
+                                    <option value="677">Solomon (+677)</option>
+                                    <option value="252">Somalia (+252)</option>
+                                    <option value="27">S. Africa (+27)</option>
+                                    <option value="34">Spain (+34)</option>
+                                    <option value="94">SriLanka (+94)</option>
+                                    <option value="290">StHelena (+290)</option>
+                                    <option value="1869">StKitts (+1869)</option>
+                                    <option value="1758">StLucia (+1758)</option>
+                                    <option value="249">Sudan (+249)</option>
+                                    <option value="597">Suriname (+597)</option>
+                                    <option value="268">Swaziland (+268)</option>
+                                    <option value="46">Sweden (+46)</option>
+                                    <option value="41">Switzerland (+41)</option>
+                                    <option value="963">Syria (+963)</option>
+                                    <option value="886">Taiwan (+886)</option>
+                                    <option value="7">Tajikistan (+7)</option>
+                                    <option value="66">Thailand (+66)</option>
+                                    <option value="228">Togo (+228)</option>
+                                    <option value="676">Tonga (+676)</option>
+                                    <option value="1868">Trinidad (+1868)</option>
+                                    <option value="216">Tunisia (+216)</option>
+                                    <option value="90">Turkey (+90)</option>
+                                    <option value="993">Turkmenistan (+993)</option>
+                                    <option value="1649">Turks (+1649)</option>
+                                    <option value="688">Tuvalu (+688)</option>
+                                    <option value="256">Uganda (+256)</option>
+                                    <option value="44">UK (+44)</option>
+                                    <option value="380">Ukraine (+380)</option>
+                                    <option value="598">Uruguay (+598)</option>
+                                    <option value="1">USA (+1)</option>
+                                    <option value="7">Uzbekistan (+7)</option>
+                                    <option value="678">Vanuatu (+678)</option>
+                                    <option value="379">Vatican (+379)</option>
+                                    <option value="58">Venezuela (+58)</option>
+                                    <option value="84">Vietnam (+84)</option>
+                                    <option value="1284">VI-British (+1284)</option>
+                                    <option value="1340">VI-US (+1340)</option>
+                                    <option value="681">Wallis (+681)</option>
+                                    <option value="969">YemenN (+969)</option>
+                                    <option value="967">YemenS (+967)</option>
+                                    <option value="260">Zambia (+260)</option>
+                                    <option value="263">Zimbabwe (+263)</option>
+                                </select>
+                                <input type="number" placeholder="MOBILE" class="bvcm_lead_two_mobile">
+                            </div>
+                            <div class="footer-form-input form-input">
+                                <input type="email" placeholder="EMAIL" class="bvcm_lead_two_email">
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button class="custom-btn-full-width bvcm_lead_two_meet_type" data-type="zoom"
+                                        aria-label="Zoom">ZOOM</button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="custom-btn-full-width bvcm_lead_two_meet_type" data-type="teams"
+                                        aria-label="Teams">TEAMS</button>
+                                </div>
+                            </div>
+                            <button class="custom-btn-full-width bvcm_lead_two_submit" aria-label="Book Now">CONFIRM
+                                NOW</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="video-call-calendar">
+                            <div class="video-call-gmt">SELECT A DATE AND TIME (UAE TIMEZONE - GMT+4) </div>
+                            <div id="bvcm_appointment_calendar"></div>
+                            <input type="hidden" id="bvcm_appointment_date">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="video-call-date">
+                            <div class="time-slot-heading">Time Slots</div>
+                            <div id="bvcm_time_slots" class="bvcm_time_slots">
+                                <!-- Generated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        /*============================================
+    =            Project Banner Image            =
+    ============================================*/
+
+        function loadResponsiveImage() {
+            const banner = document.querySelector(".project-banner-image");
+            const desktopImage = banner.getAttribute("data-desktop");
+            const mobileImage = banner.getAttribute("data-mobile");
+
+            // Check device width for mobile or desktop
+            if (window.innerWidth <= 768) {
+                banner.style.backgroundImage = `url(${mobileImage})`;
+            } else {
+                banner.style.backgroundImage = `url(${desktopImage})`;
+            }
+        }
+
+        // Run when the page loads
+        window.addEventListener("load", loadResponsiveImage);
+
+        // Run when the window resizes
+        window.addEventListener("resize", loadResponsiveImage);
+
+        /*=====  End of Project Banner Image  ======*/
+    </script>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../../recaptcha/api.js?render=6LcGEQgqAAAAAP_hHyvKi8kU6oxxyRLXg69BdrTz"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <script>
+        /*===================================
+    =            Project Tab            =
+    ===================================*/
+
+        $(document).ready(function () {
+            function updateTabHeight() {
+                var activeTabHeight = $(".project-tab-content.active").outerHeight();
+                $(".project-tab-container").css("height", activeTabHeight + "px");
+            }
+
+            // Set initial height on page load
+            updateTabHeight();
+
+            $(".project-tab-link").click(function () {
+                var tabID = $(this).attr("data-project-tab");
+
+                // Remove active class from all tabs and add to clicked tab
+                $(".project-tab-link").removeClass("active");
+                $(this).addClass("active");
+
+                // Slide out current active tab to the right
+                $(".project-tab-content.active").css("transform", "translateX(100%)").css("opacity", "0");
+
+                // Wait for animation, then hide it
+                setTimeout(function () {
+                    $(".project-tab-content").removeClass("active").css("transform",
+                        "translateX(100%)");
+
+                    // Slide in new tab from the left
+                    $("#" + tabID).addClass("active").css("transform", "translateX(0)").css(
+                        "opacity", "1");
+
+                    // Adjust container height after new content is visible
+                    setTimeout(updateTabHeight, 300);
+                }, 500);
+            });
+        });
+
+        /*=====  End of Project Tab  ======*/
+
+        /*==================================================
+        =            Project Details Tab Slider            =
+        ==================================================*/
+
+        $(document).ready(function () {
+            var owl = $('.project-details-tab-slider');
+
+            owl.owlCarousel({
+                items: 1,
+                loop: true,
+                autoplay: false,
+                autoplayTimeout: 5000,
+                autoplaySpeed: 1000,
+                smartSpeed: 1000,
+                nav: false, // Disabling default navigation
+                dots: false, // Hide dots
+                onTranslated: function (event) {
+                    setTimeout(() => {
+                        $(event.target).find(
+                            '.owl-item.active .project-details-tab-slider-content')
+                            .addClass('project-details-tab-slide-active');
+                    }, 200);
+                },
+                onTranslate: function (event) {
+                    $(event.target).find('.owl-item .project-details-tab-slider-content').removeClass(
+                        'project-details-tab-slide-active');
+                }
+            });
+
+            // Custom Arrows Click Event
+            $('.project-details-tab-slider-arrow-left').click(function () {
+                owl.trigger('prev.owl.carousel');
+            });
+
+            $('.project-details-tab-slider-arrow-right').click(function () {
+                owl.trigger('next.owl.carousel');
+            });
+        });
+
+
+        /*=====  End of Project Details Tab Slider  ======*/
+
+        /*========================================
+        =            Check Visibility            =
+        ========================================*/
+
+        function onVisible(element, callback) {
+            let observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        callback();
+                        observer.disconnect(); // Stop observing once the callback is triggered
+                    }
+                });
+            }, {
+                threshold: 0.50
+            }); // Trigger when 75% of the element is visible
+
+            document.querySelectorAll(element).forEach(el => observer.observe(el));
+        }
+
+        /*=====  End of Check Visibility  ======*/
+
+
+        /*==============================================
+        =            Project Details Slider            =
+        ==============================================*/
+
+        $(document).ready(function () {
+            // First Slider (Animated)
+            var project_details_slider_1 = $(".project-details-slider-1").owlCarousel({
+                items: 1,
+                loop: true,
+                autoplay: false,
+                autoplayTimeout: 4000,
+                autoplaySpeed: 800,
+                smartSpeed: 2000, // Transition speed 2 seconds
+                animateOut: 'slideOutUp',
+                animateIn: 'slideInUp',
+                slideTransition: 'linear',
+                nav: false,
+                dots: true
+            });
+
+            // Second Slider (Images with Custom Arrows)
+            var project_details_slider_2 = $(".project-details-slider-2").owlCarousel({
+                items: 1,
+                loop: true,
+                autoplay: false,
+                nav: false,
+                dots: false,
+                smartSpeed: 2000 // Transition speed 2 seconds
+            });
+
+            // Function to handle arrow clicks with a 1-second disable
+            function disableArrowsTemporarily() {
+                $(".project-details-slider-arrow-left, .project-details-slider-arrow-right")
+                    .prop("disabled", true) // Disable the arrows
+                    .addClass("disabled"); // Optional: Add class to style disabled state
+
+                setTimeout(function () {
+                    $(".project-details-slider-arrow-left, .project-details-slider-arrow-right")
+                        .prop("disabled", false) // Re-enable the arrows
+                        .removeClass("disabled");
+                }, 2000); // 1-second delay
+            }
+
+            // Custom Arrows for Both Sliders
+            $(".project-details-slider-arrow-left").click(function () {
+                disableArrowsTemporarily();
+                project_details_slider_1.trigger("prev.owl.carousel");
+                project_details_slider_2.trigger("prev.owl.carousel");
+            });
+
+            $(".project-details-slider-arrow-right").click(function () {
+                disableArrowsTemporarily();
+                project_details_slider_1.trigger("next.owl.carousel");
+                project_details_slider_2.trigger("next.owl.carousel");
+            });
+        });
+
+        /*=====  End of Project Details Slider  ======*/
+
+
+        // Usage
+        onVisible('.project-banner', function () {
+            $('.project-banner').addClass('project-banner-active');
+        });
+
+        /*=================================
+        =            kuula 360            =
+        =================================*/
+
+        setTimeout(function () {
+            var iframe = document.createElement('iframe');
+            iframe.width = "100%";
+            iframe.style.height = "100vh"; // Updated to 100vh
+            iframe.frameBorder = "0";
+            iframe.allow = "xr-spatial-tracking; gyroscope; accelerometer";
+            iframe.allowFullscreen = true;
+            iframe.scrolling = "no";
+            iframe.src =
+                "https://kuula.co/share/collection/7DblL?logo=-1&info=0&fs=0&vr=0&sd=1&gyro=1&autop=0&thumbs=-1&keys=0";
+            document.getElementById('iframe-container').appendChild(iframe);
+
+            // CSS to hide left-right arrows
+            var style = document.createElement('style');
+            style.innerHTML = `
+          #iframe-container iframe::before,
+          #iframe-container iframe::after {
+              display: none !important;
+          }
+      `;
+            document.head.appendChild(style);
+
+        }, 3000);
+
+        /*=====  End of kuula 360  ======*/
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".cards-container").owlCarousel({
+                loop: false,
+                nav: false,
+                dots: false,
+                margin: 20,
+                autoWidth: true, // allow card width control via CSS
+                stagePadding: 60, // peek amount for mobile
+                responsive: {
+                    0: {
+                        items: 1,
+                        stagePadding: 80 // adjust to control peek size
+                    },
+                    576: {
+                        items: 2,
+                        stagePadding: 60
+                    },
+                    992: {
+                        items: 3,
+                        stagePadding: 60
+                    }
+                },
+                onInitialized: removeStartPadding,
+                onResized: removeStartPadding
+            });
+
+            function removeStartPadding() {
+                setTimeout(function () {
+                    $('.cards-container .owl-stage').css('padding-left',
+                        '0px'); // remove left stage padding
+                    $('.cards-container .owl-stage').css('padding-right',
+                        '0px '); // optional: remove right padding
+                }, 100);
+            }
+        });
+    </script>
+
+    <!-- Floor Plans JS -->
+    <script>
+        function showImage(unit) {
+            // Hide all floor plan images
+            document.querySelectorAll('.floor-plan-image').forEach(img => {
+                img.style.display = 'none';
+            });
+
+            // Show the selected one
+            const target = document.querySelector(`.floor-plan-image[data-unit="${unit}"]`);
+            if (target) target.style.display = 'block';
+        }
+
+        // Event for desktop list
+        document.querySelectorAll('.units-list li').forEach(item => {
+            item.addEventListener('click', function () {
+                const unit = this.getAttribute('data-unit').toLowerCase();
+                showImage(unit);
+
+                // Remove active class from all li
+                document.querySelectorAll('.units-list li').forEach(li => li.classList.remove('active'));
+
+                // Add active to clicked li
+                this.classList.add('active');
+            });
+        });
+
+        // Event for mobile dropdown
+        document.getElementById('units').addEventListener('change', function () {
+            const unit = this.value;
+            showImage(unit);
+
+            // Sync active class with mobile dropdown (optional)
+            document.querySelectorAll('.units-list li').forEach(li => {
+                li.classList.remove('active');
+                if (li.getAttribute('data-unit') === unit) {
+                    li.classList.add('active');
+                }
+            });
+        });
+
+        // ✅ Show Studio by default on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            showImage('studio');
+            document.getElementById('units').value = 'studio';
+
+            // Set Studio <li> as active
+            const studioLi = document.querySelector('.units-list li[data-unit="studio"]');
+            if (studioLi) studioLi.classList.add('active');
+        });
+    </script>
+    <script>
+        function openAssetsPopup() {
+            document.getElementById('assetsPopup').style.display = 'flex';
+        }
+
+        function closeAssetsPopup() {
+            document.getElementById('assetsPopup').style.display = 'none';
+        }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="../../npm/bootstrap%405.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
+        </script>
+
+    <script defer="" src="../../beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+        integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+        data-cf-beacon='{"version":"2024.11.0","token":"c01aedeecfd14c788f474f31f798b3f4","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
