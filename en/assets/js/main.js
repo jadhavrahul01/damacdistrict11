@@ -1509,7 +1509,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 function loadBannerSlider() {
   const banner = document.querySelector(".project-banner-image");
-  if (!banner) return;
+  if (!banner || banner.dataset.sliderReady === "true") return;
 
   const slides = banner.querySelectorAll(".project-banner-slide");
   const images = banner.getAttribute("data-images")
@@ -1518,11 +1518,20 @@ function loadBannerSlider() {
     .filter(Boolean);
   if (!images.length || slides.length < 2) return;
 
+  banner.dataset.sliderReady = "true";
+
   const fadeDuration = 700;
   const slideInterval = 4500;
   let currentIndex = 0;
   let currentSlide = slides[0];
   let nextSlide = slides[1];
+
+  // Warm up hero images early to avoid first-slide lag.
+  images.forEach((src) => {
+    const img = new Image();
+    img.decoding = "async";
+    img.src = src;
+  });
 
   currentSlide.style.backgroundImage = `url(${images[currentIndex]})`;
   currentSlide.style.opacity = 1;
@@ -1543,10 +1552,10 @@ function loadBannerSlider() {
   }, slideInterval);
 }
 
-if (document.readyState === "complete") {
+if (document.readyState === "interactive" || document.readyState === "complete") {
   loadBannerSlider();
 } else {
-  window.addEventListener("load", loadBannerSlider);
+  document.addEventListener("DOMContentLoaded", loadBannerSlider, { once: true });
 }
 
 /*=====  End of Project Banner Image  ======*/
